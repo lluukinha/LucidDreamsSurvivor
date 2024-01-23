@@ -1,0 +1,11 @@
+key,en,pt
+ability_sword_rate_name,Sword Quickness,Espada Veloz
+ability_sword_rate_description,Increases sword attack rate by 10%,Aumenta velocidade do ataque em 10%
+ability_axe_name,Axe,Machado
+ability_axe_description,Periodically sends out a spinning axe,Solta um machado giratório
+victory_title,Victory,Vitória
+victory_description,You won!,Você venceu
+defeat_title,Defeat,Derrota
+defeat_description,You lost!,Você perdeu
+end_screen_restart_button,Restart,Reiniciar
+end_screen_quit_button,Quit,Sair
