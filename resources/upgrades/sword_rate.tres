@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bsc36paiw4ymu"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://bsc36paiw4ymu"]
 
 [ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_2btlt"]
 
@@ -7,3 +7,4 @@ script = ExtResource("1_2btlt")
 id = "sword_rate"
 name = "ability_sword_rate_name"
 description = "ability_sword_rate_description"
+max_quantity = 5

@@ -92,9 +92,7 @@ autoplay = "walk"
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_xnb2m")]
 health_component = NodePath("../HealthComponent")
 
-[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_g4qdg")]
-health_component = NodePath("../HealthComponent")
-sprite = NodePath("../Visuals/Sprite2D")
+[node name="DeathComponent" parent="." instance=ExtResource("4_g4qdg")]
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_u8fqm")]
 visible = false
