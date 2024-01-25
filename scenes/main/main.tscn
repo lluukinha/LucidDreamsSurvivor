@@ -26,7 +26,7 @@ experience_manager = NodePath("../ExperienceManager")
 [node name="ArenaTimeManager" parent="." instance=ExtResource("2_jiskq")]
 
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_pyhgb")]
-basic_enemy_scene = ExtResource("7_gymx7")
+wizard_enemy_scene = ExtResource("7_gymx7")
 arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="ExperienceManager" parent="." instance=ExtResource("4_gpt8d")]
