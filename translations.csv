@@ -1,8 +1,12 @@
 key,en,pt
 ability_sword_rate_name,Sword Quickness,Espada Veloz
 ability_sword_rate_description,Increases sword attack rate by 10%,Aumenta velocidade do ataque em 10%
+ability_sword_damage_name,Sword Damage,Dano da Espada
+ability_sword_damage_description,Increases sword damage by 15%,Aumenta força do ataque em 15%
 ability_axe_name,Axe,Machado
 ability_axe_description,Periodically sends out a spinning axe,Solta um machado giratório
+ability_axe_damage_name,Axe Damage,Dano do Machado
+ability_axe_damage_description,Increases axe damage by 10%,Aumenta força do ataque em 10%
 victory_title,Victory,Vitória
 victory_description,You won!,Você venceu
 defeat_title,Defeat,Derrota
