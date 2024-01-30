@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/game_objects/player/player.gd" id="1_6hhjf"]
 [ext_resource type="PackedScene" uid="uid://g38lucl12bnx" path="res://scenes/components/health_component.tscn" id="2_4eg02"]
 [ext_resource type="Texture2D" uid="uid://dtgwak83ih631" path="res://scenes/game_objects/player/player.png" id="2_5c242"]
+[ext_resource type="PackedScene" uid="uid://8moua6rficel" path="res://scenes/components/velocity_component.tscn" id="2_csre0"]
 [ext_resource type="PackedScene" uid="uid://f846r3k2vdhs" path="res://scenes/abilities/sword_ability_controller/sword_ability_controller.tscn" id="2_ykq0s"]
 
 [sub_resource type="Animation" id="Animation_n6eqc"]
@@ -91,9 +92,6 @@ _data = {
 "walk": SubResource("Animation_l3j10")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4qu4"]
-bg_color = Color(0.247059, 0.14902, 0.192157, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wviri"]
 bg_color = Color(0.262745, 0.882353, 0.701961, 1)
 border_width_left = 2
@@ -121,6 +119,10 @@ libraries = {
 "": SubResource("AnimationLibrary_tjq6m")
 }
 
+[node name="VelocityComponent" parent="." instance=ExtResource("2_csre0")]
+max_speed = 90
+acceleration = 25.0
+
 [node name="HealthComponent" parent="." instance=ExtResource("2_4eg02")]
 
 [node name="Abilities" type="Node" parent="."]
@@ -138,13 +140,13 @@ offset_top = -24.0
 offset_right = 16.0
 offset_bottom = -18.0
 pivot_offset = Vector2(16, 3)
-theme_override_styles/background = SubResource("StyleBoxFlat_f4qu4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_wviri")
 max_value = 1.0
 value = 0.5
 show_percentage = false
 
 [node name="PickupArea2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 16
 collision_mask = 0
 

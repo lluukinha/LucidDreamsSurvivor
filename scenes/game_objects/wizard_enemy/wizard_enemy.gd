@@ -6,7 +6,7 @@ extends CharacterBody2D
 var is_moving = false
 
 
-func _process(delta):
+func _process(_delta):
 	if is_moving:
 		velocity_component.accelerate_to_player()
 	else:

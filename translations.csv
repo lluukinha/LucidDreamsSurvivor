@@ -7,6 +7,8 @@ ability_axe_name,Axe,Machado
 ability_axe_description,Periodically sends out a spinning axe,Solta um machado giratório
 ability_axe_damage_name,Axe Damage,Dano do Machado
 ability_axe_damage_description,Increases axe damage by 10%,Aumenta força do ataque em 10%
+ability_player_speed_name,Move speed,Velocidade
+ability_player_speed_description,Increases player movement speed by 10%,Aumenta velocidade de movimento em 10%
 victory_title,Victory,Vitória
 victory_description,You won!,Você venceu
 defeat_title,Defeat,Derrota
