@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dgk1w44dspr5g"]
+[gd_scene load_steps=22 format=3 uid="uid://dgk1w44dspr5g"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/basic_enemy/basic_enemy.gd" id="1_h5kv4"]
 [ext_resource type="Texture2D" uid="uid://dbos885igki1e" path="res://scenes/game_objects/basic_enemy/basic_enemy.png" id="1_w2tla"]
@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://c2mjbittu15sy" path="res://scenes/components/hurtbox_component.tscn" id="4_u8fqm"]
 [ext_resource type="Shader" path="res://scenes/components/hit_flash_component.gdshader" id="6_xt2sa"]
 [ext_resource type="PackedScene" uid="uid://byi8c0p6u7lqc" path="res://scenes/components/hit_flash_component.tscn" id="8_elwk8"]
+[ext_resource type="AudioStream" uid="uid://dodv50foq87i2" path="res://assets/audio/footstep_carpet_000.ogg" id="10_w0xd6"]
+[ext_resource type="PackedScene" uid="uid://dpb2pclf6b7xv" path="res://scenes/components/random_stream_player_2d_component.tscn" id="11_6ruyp"]
+[ext_resource type="AudioStream" uid="uid://cm1xmudtwy2my" path="res://assets/audio/footstep_carpet_001.ogg" id="12_q0ryq"]
+[ext_resource type="AudioStream" uid="uid://cy7evl7iaekhm" path="res://assets/audio/footstep_carpet_002.ogg" id="13_l427d"]
+[ext_resource type="AudioStream" uid="uid://c7gjft8wv8rtb" path="res://assets/audio/footstep_carpet_003.ogg" id="14_voa8a"]
+[ext_resource type="AudioStream" uid="uid://dv627s88ve3er" path="res://assets/audio/footstep_carpet_004.ogg" id="15_8heky"]
 
 [sub_resource type="Animation" id="Animation_aksl7"]
 length = 0.001
@@ -110,6 +116,10 @@ hit_flash_material = SubResource("ShaderMaterial_anmmi")
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_g4qdg")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
+
+[node name="HitRandomAudioPlayerComponent" parent="." instance=ExtResource("11_6ruyp")]
+max_distance = 300.0
+streams = Array[AudioStream]([ExtResource("10_w0xd6"), ExtResource("12_q0ryq"), ExtResource("13_l427d"), ExtResource("14_voa8a"), ExtResource("15_8heky")])
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_u8fqm")]
 visible = false

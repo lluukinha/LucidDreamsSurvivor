@@ -1,4 +1,7 @@
 key,en,pt
+play_button,Play,Jogar
+options_button,Options,Configurações
+quit_button,Quit,Sair
 ability_sword_rate_name,Sword Quickness,Espada Veloz
 ability_sword_rate_description,Increases sword attack rate by 10%,Aumenta velocidade do ataque em 10%
 ability_sword_damage_name,Sword Damage,Dano da Espada

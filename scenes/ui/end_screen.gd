@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name EndScreen
 
 @onready var panel_container = %PanelContainer
 
@@ -16,6 +17,14 @@ func _ready():
 func set_defeat():
 	%TitleLabel.text = tr("defeat_title")
 	%DescriptionLabel.text = tr("defeat_description")
+	play_jingle(true)
+
+
+func play_jingle(defeat: bool):
+	if defeat:
+		$DefeatStreamPlayer.play()
+	else:
+		$VictoryStreamPlayer.play()
 
 
 func on_restart_button_pressed():
@@ -24,4 +33,4 @@ func on_restart_button_pressed():
 
 
 func on_quit_button_pressed():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
