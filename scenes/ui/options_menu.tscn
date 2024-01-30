@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://7udlfm48ruv8"]
+[gd_scene load_steps=10 format=3 uid="uid://7udlfm48ruv8"]
 
 [ext_resource type="Script" path="res://scenes/ui/options_menu.gd" id="1_yxuyh"]
 [ext_resource type="TileSet" uid="uid://ct068f3i5huv1" path="res://resources/tileset.tres" id="2_bo0r6"]
+[ext_resource type="PackedScene" uid="uid://bdxigk48ligcp" path="res://scenes/ui/vignette.tscn" id="2_vvx5g"]
 [ext_resource type="PackedScene" uid="uid://cv5mvullt6fg2" path="res://scenes/ui/sound_button.tscn" id="3_kxer8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5u07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q3w86"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wq581"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j36if"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nw2or"]
 
 [node name="OptionsMenu" type="CanvasLayer"]
 script = ExtResource("1_yxuyh")
@@ -41,6 +52,7 @@ theme_override_constants/separation = 24
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 theme_override_font_sizes/font_size = 32
 text = "options_button"
 horizontal_alignment = 1
@@ -61,6 +73,18 @@ popup/item_1/id = 1
 [node name="WindowButton" type="CheckButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_constants/outline_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v5u07")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_q3w86")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wq581")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_j36if")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nw2or")
 text = "options_window_mode"
 
 [node name="SfxOptionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
@@ -68,6 +92,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SfxOptionContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 text = "options_sfx_volume"
 
 [node name="SFXSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SfxOptionContainer"]
@@ -81,6 +106,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 text = "options_music_volume"
 
 [node name="MusicSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionContainer"]
@@ -95,5 +121,8 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "back_button"
+
+[node name="Vignette" parent="." instance=ExtResource("2_vvx5g")]
+layer = 2
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowButton" to="." method="_on_window_button_pressed"]

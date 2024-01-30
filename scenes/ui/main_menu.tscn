@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfvau0lud831d"]
+[gd_scene load_steps=5 format=3 uid="uid://dfvau0lud831d"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_xki4i"]
 [ext_resource type="TileSet" uid="uid://ct068f3i5huv1" path="res://resources/tileset.tres" id="1_xrkp0"]
 [ext_resource type="PackedScene" uid="uid://cv5mvullt6fg2" path="res://scenes/ui/sound_button.tscn" id="2_j5wut"]
+[ext_resource type="PackedScene" uid="uid://bdxigk48ligcp" path="res://scenes/ui/vignette.tscn" id="2_v131g"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_xki4i")
@@ -39,6 +40,7 @@ size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 theme_override_font_sizes/font_size = 32
 text = "Lucid Dreams Survivor"
 
@@ -56,3 +58,5 @@ text = "options_button"
 unique_name_in_owner = true
 layout_mode = 2
 text = "quit_button"
+
+[node name="Vignette" parent="." instance=ExtResource("2_v131g")]
