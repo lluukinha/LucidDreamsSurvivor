@@ -3,11 +3,16 @@ play_button,Play,Jogar
 options_button,Options,Configuracoes
 quit_button,Quit,Sair
 back_button,Back,Voltar
+pause_menu_title,PAUSED,PAUSADO
+pause_menu_resume_button,Resume,Continuar
+pause_menu_quit_button,Quit to menu,Sair para tela inicial
 options_sfx_volume,SFX Volume,Volume dos efeitos
 options_music_volume,Music volume,Volume da Musica
 options_window_mode,Fullscreen,Tela cheia
 options_language_en,English,Ingles
 options_language_pt,Brazilian Portuguese,Portugues Brasileiro
+meta_upgrades_experience_gain_title,Increase experience,Aumentar experiencia
+meta_upgrades_experience_gain_description,Increases experience drop chance by 10%,Aumenta chance de drop de experiencia em 10%
 ability_sword_rate_name,Sword Quickness,Espada Veloz
 ability_sword_rate_description,Increases sword attack rate by 10%,Aumenta velocidade do ataque em 10%
 ability_sword_damage_name,Sword Damage,Dano da Espada
