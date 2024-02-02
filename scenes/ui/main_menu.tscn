@@ -49,6 +49,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "play_button"
 
+[node name="UpgradesButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_j5wut")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "upgrades_button"
+
 [node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_j5wut")]
 unique_name_in_owner = true
 layout_mode = 2

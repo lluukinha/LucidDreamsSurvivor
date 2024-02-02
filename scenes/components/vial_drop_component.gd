@@ -10,7 +10,11 @@ func _ready():
 
 
 func on_died():
-	if randf() > drop_percent || vial_scene == null || not owner is Node2D:
+	var adjusted_drop_percent = drop_percent
+	var experience_gain_upgrade_count = MetaProgression.get_upgrade_count("experience_gain")
+	if experience_gain_upgrade_count > 0:
+		adjusted_drop_percent = drop_percent + (0.1 * experience_gain_upgrade_count)
+	if randf() > adjusted_drop_percent || vial_scene == null || not owner is Node2D:
 		return
 	
 	var spawn_position = (owner as Node2D).global_position

@@ -15,7 +15,11 @@ run/main_scene="res://scenes/ui/main_menu.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="LucidDreamsSurvivor"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://LionJ.png"
+config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
+boot_splash/minimum_display_time=2500
 
 [autoload]
 
@@ -28,9 +32,11 @@ MetaProgression="*res://scenes/autoload/meta_progression.tscn"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=3
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
+window/size/mode.debug=0
 
 [gui]
 

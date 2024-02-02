@@ -15,5 +15,12 @@ func transition():
 	$ColorRect.visible = false
 
 
+func transition_to_scene(scene_path: String):
+	transition()
+	await transitioned_halfway
+	get_tree().paused = false
+	get_tree().change_scene_to_file(scene_path)
+
+
 func emit_transitioned_halfway():
 	transitioned_halfway.emit()
