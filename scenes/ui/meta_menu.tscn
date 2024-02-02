@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://0cf4wegt7ryu"]
+
+[ext_resource type="Script" path="res://scenes/ui/meta_menu.gd" id="1_vajd7"]
+[ext_resource type="Resource" uid="uid://brm5njm83k03s" path="res://resources/meta_upgrades/experience_gain.tres" id="2_rejed"]
+
+[node name="MetaMenu" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_vajd7")
+upgrades = Array[Resource("res://resources/meta_upgrades/meta_upgrade.gd")]([ExtResource("2_rejed")])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 16
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 16
+columns = 3
