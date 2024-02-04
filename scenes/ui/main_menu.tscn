@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfvau0lud831d"]
+[gd_scene load_steps=6 format=3 uid="uid://dfvau0lud831d"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_xki4i"]
 [ext_resource type="TileSet" uid="uid://ct068f3i5huv1" path="res://resources/tileset.tres" id="1_xrkp0"]
 [ext_resource type="PackedScene" uid="uid://cv5mvullt6fg2" path="res://scenes/ui/sound_button.tscn" id="2_j5wut"]
 [ext_resource type="PackedScene" uid="uid://bdxigk48ligcp" path="res://scenes/ui/vignette.tscn" id="2_v131g"]
+[ext_resource type="Texture2D" uid="uid://b4dkmmjjo4f1b" path="res://assets/images/morengo.png" id="3_rw4xs"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_xki4i")
@@ -20,46 +21,65 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_bottom = 16
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+z_index = 2
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/MarginContainer"]
+position = Vector2(2.08165e-12, -79)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("3_rw4xs")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"BlueOutlineLabel"
 theme_override_font_sizes/font_size = 32
 text = "Lucid Dreams Survivor"
 
-[node name="PlayButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_j5wut")]
+[node name="PlayButton" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_j5wut")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "play_button"
 
-[node name="UpgradesButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_j5wut")]
+[node name="UpgradesButton" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_j5wut")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "upgrades_button"
 
-[node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_j5wut")]
+[node name="OptionsButton" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_j5wut")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "options_button"
 
-[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_j5wut")]
+[node name="QuitButton" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_j5wut")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "quit_button"
