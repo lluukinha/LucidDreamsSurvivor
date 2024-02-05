@@ -118,7 +118,6 @@ health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 
 [node name="HitRandomAudioPlayerComponent" parent="." instance=ExtResource("11_6ruyp")]
-max_distance = 300.0
 streams = Array[AudioStream]([ExtResource("10_w0xd6"), ExtResource("12_q0ryq"), ExtResource("13_l427d"), ExtResource("14_voa8a"), ExtResource("15_8heky")])
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_u8fqm")]

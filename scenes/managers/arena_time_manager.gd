@@ -1,16 +1,20 @@
 extends Node
 
 signal arena_difficulty_increased(arena_difficulty: int)
+signal arena_timeout
 
 const DIFFICULTY_INTERVAL = 5
 
 @export var end_screen_scene: PackedScene
+@export var arena_time_in_seconds: float = 600
 
 @onready var timer = $Timer
 
 var arena_difficulty: int = 0
 
 func _ready():
+	timer.set_wait_time(arena_time_in_seconds)
+	timer.start()
 	timer.timeout.connect(on_timer_timeout)
 
 
@@ -26,7 +30,4 @@ func get_time_elapsed():
 
 
 func on_timer_timeout():
-	var end_screen_instance = end_screen_scene.instantiate() as EndScreen
-	add_child(end_screen_instance)
-	end_screen_instance.play_jingle(false)
-	MetaProgression.save()
+	arena_timeout.emit()

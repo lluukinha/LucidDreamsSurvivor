@@ -11,6 +11,7 @@ extends CharacterBody2D
 
 var number_colliding_bodies = 0;
 var base_speed = 0
+var can_move = true
 
 
 func _ready():
@@ -26,11 +27,12 @@ func _ready():
 
 func _process(_delta):
 	var movement_vector = get_movement_vector()
-	var direction = movement_vector.normalized()
-	velocity_component.accelerate_in_direction(direction)
-	velocity_component.move(self)
+	if can_move:
+		var direction = movement_vector.normalized()
+		velocity_component.accelerate_in_direction(direction)
+		velocity_component.move(self)
 	
-	if movement_vector.x != 0 || movement_vector.y != 0:
+	if can_move && (movement_vector.x != 0 || movement_vector.y != 0):
 		animation_player.play("walk")
 	else:
 		animation_player.play("RESET")

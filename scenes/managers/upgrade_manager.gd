@@ -5,6 +5,7 @@ extends Node
 
 var current_upgrades = {}
 var upgrade_pool: WeightedTable = WeightedTable.new()
+var can_level_up = true
 
 var upgrade_axe = preload("res://resources/upgrades/axe.tres")
 var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
@@ -46,7 +47,7 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 
 func pick_upgrades():
 	var chosen_upgrades: Array[AbilityUpgrade] = []
-	for i in 2:
+	for i in 3:
 		if upgrade_pool.items.size() == chosen_upgrades.size():
 			break
 		var chosen_upgrade = upgrade_pool.pick_item(chosen_upgrades)
@@ -60,6 +61,8 @@ func on_upgrade_selected(upgrade: AbilityUpgrade):
 
 
 func on_level_up(_new_level: int):
+	if !can_level_up:
+		return
 	var upgrade_screen_instance = upgrade_screen_scene.instantiate()
 	add_child(upgrade_screen_instance)
 	var chosen_upgrades = pick_upgrades()

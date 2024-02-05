@@ -32,3 +32,4 @@ defeat_title,Defeat,Derrota
 defeat_description,You lost!,Voce perdeu
 end_screen_restart_button,Restart,Reiniciar
 end_screen_quit_button,Quit,Sair
+level,Level,Nivel

@@ -29,3 +29,7 @@ func set_is_moving(moving: bool):
 
 func on_hit():
 	$HitRandomAudioPlayerComponent.play_random()
+
+
+func die():
+	$HealthComponent.die()

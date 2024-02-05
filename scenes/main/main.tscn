@@ -26,6 +26,7 @@ arena_time_manager = NodePath("../ArenaTimeManager")
 experience_manager = NodePath("../ExperienceManager")
 
 [node name="ArenaTimeManager" parent="." instance=ExtResource("2_jiskq")]
+arena_time_in_seconds = 30.0
 
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_pyhgb")]
 arena_time_manager = NodePath("../ArenaTimeManager")

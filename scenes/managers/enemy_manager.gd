@@ -10,6 +10,7 @@ const SPAWN_RADIUS = 375
 
 var base_spawn_time = 0
 var enemies_table = WeightedTable.new()
+var can_spawn = true
 
 
 func _ready():
@@ -44,6 +45,9 @@ func get_spawn_position():
 
 
 func on_timer_timeout():
+	if !can_spawn:
+		return
+	
 	timer.start()
 	
 	var enemy_scene = enemies_table.pick_item() as PackedScene

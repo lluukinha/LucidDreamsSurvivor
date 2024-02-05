@@ -19,3 +19,8 @@ func _process(_delta):
 
 func on_hit():
 	$HitRandomAudioPlayerComponent.play_random()
+
+
+func die():
+	$HealthComponent.die()
+
