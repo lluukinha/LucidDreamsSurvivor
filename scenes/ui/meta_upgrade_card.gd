@@ -34,6 +34,7 @@ func update_progress():
 	purchase_button.disabled = percent < 1 || is_maxed
 	if is_maxed:
 		purchase_button.text = tr("meta_upgrades_maxed_quantity_label")
+		%AvailableQuantityVBoxContainer.visible = false
 	progress_label.text = str(currency) + "/" + str(meta_upgrade.cost)
 	if meta_upgrade == null:
 		return

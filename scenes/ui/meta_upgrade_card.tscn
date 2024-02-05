@@ -163,22 +163,23 @@ theme_type_variation = &"BlueOutlineLabel"
 text = "description"
 autowrap_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="AvailableQuantityVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = -1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AvailableQuantityVBoxContainer"]
 layout_mode = 2
 
-[node name="ProgressLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="ProgressLabel" type="Label" parent="MarginContainer/VBoxContainer/AvailableQuantityVBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 theme_type_variation = &"BlueOutlineLabel"
 text = "50/200"
 
-[node name="CountLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="CountLabel" type="Label" parent="MarginContainer/VBoxContainer/AvailableQuantityVBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -186,11 +187,11 @@ theme_type_variation = &"BlueOutlineLabel"
 text = "x0"
 horizontal_alignment = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/AvailableQuantityVBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/AvailableQuantityVBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
@@ -199,13 +200,13 @@ max_value = 1.0
 value = 0.5
 show_percentage = false
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/AvailableQuantityVBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/AvailableQuantityVBoxContainer/MarginContainer/Control"]
 layout_mode = 2
 offset_left = -5.0
 offset_top = -5.0
