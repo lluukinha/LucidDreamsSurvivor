@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
+signal player_died
+
 @onready var damage_interval_timer = $DamageIntervalTimer
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var abilities = $Abilities
-@onready var animation_player = $AnimationPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visuals = $Visuals
 @onready var velocity_component: VelocityComponent = $VelocityComponent
 
@@ -12,9 +14,10 @@ extends CharacterBody2D
 var number_colliding_bodies = 0;
 var base_speed = 0
 var can_move = true
-
+var is_dead = false
 
 func _ready():
+	health_component.died.connect(on_player_died)
 	base_speed = velocity_component.max_speed
 	
 	$CollisionArea2D.body_entered.connect(on_body_entered)
@@ -26,6 +29,9 @@ func _ready():
 
 
 func _process(_delta):
+	if is_dead:
+		return
+	
 	var movement_vector = get_movement_vector()
 	if can_move:
 		var direction = movement_vector.normalized()
@@ -49,7 +55,7 @@ func get_movement_vector():
 
 
 func check_deal_damage():
-	if number_colliding_bodies == 0 || !damage_interval_timer.is_stopped():
+	if number_colliding_bodies == 0 || !damage_interval_timer.is_stopped() || !health_component:
 		return
 	health_component.damage(1)
 	damage_interval_timer.start()
@@ -84,4 +90,16 @@ func on_hability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades
 		abilities.add_child(scene.instantiate())
 	elif ability_upgrade.id == "player_speed":
 		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"] * .1)
-	
+
+
+func on_player_died():
+	is_dead = true
+	health_component.queue_free()
+	abilities.queue_free()
+	health_bar.queue_free()
+	animation_player.play("RESET")
+	await animation_player.animation_finished
+	animation_player.play("death")
+	player_died.emit()
+	await animation_player.animation_finished
+	queue_free()

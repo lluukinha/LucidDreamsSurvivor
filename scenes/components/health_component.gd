@@ -5,6 +5,7 @@ signal died
 signal health_changed
 
 @export var max_health: float = 10
+
 var current_health
 
 
@@ -31,5 +32,3 @@ func check_death():
 
 func die():
 	died.emit()
-	owner.queue_free()
-	
