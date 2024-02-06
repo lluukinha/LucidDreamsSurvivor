@@ -26,7 +26,6 @@ boot_splash/minimum_display_time=2500
 [autoload]
 
 GameEvents="*res://scenes/autoload/game_events.tscn"
-MusicPlayer="*res://scenes/autoload/music_player.tscn"
 ScreenTransition="*res://scenes/autoload/screen_transition.tscn"
 MetaProgression="*res://scenes/autoload/meta_progression.tscn"
 

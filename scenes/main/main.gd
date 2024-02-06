@@ -45,7 +45,7 @@ func show_end_screen(player_died: bool):
 
 func freeze_game():
 	player.can_move = false
-	MusicPlayer.stop()
+	$MusicPlayer.stop()
 	$EnemyManager.can_spawn = false
 	$UpgradeManager.can_level_up = false
 	(arena_time_manager.timer as Timer).stop()

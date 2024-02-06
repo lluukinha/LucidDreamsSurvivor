@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbihxhxetr654"]
+
+[ext_resource type="Script" path="res://scenes/components/music_player_component.gd" id="2_gje4g"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+volume_db = -15.0
+bus = &"music"
+script = ExtResource("2_gje4g")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
