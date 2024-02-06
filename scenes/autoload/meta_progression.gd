@@ -3,6 +3,7 @@ extends Node
 const SAVE_FILE_PATH = "user://game.save"
 
 var save_data: Dictionary = {
+	"language": "en",
 	"win_count": 0,
 	"loss_count": 0,
 	"meta_upgrade_currency": 0,
@@ -13,6 +14,8 @@ var save_data: Dictionary = {
 func _ready():
 	GameEvents.experience_vial_collected.connect(on_experience_collected)
 	load_save_file()
+	print(TranslationServer.get_locale())
+	TranslationServer.set_locale(save_data["language"])
 
 
 func load_save_file():
@@ -25,6 +28,7 @@ func load_save_file():
 func save():
 	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
 	file.store_var(save_data)
+
 
 func add_meta_upgrade(upgrade: MetaUpgrade):
 	if !save_data["meta_upgrades"].has(upgrade.id):
@@ -39,6 +43,13 @@ func get_upgrade_count(upgrade_id: String):
 	if save_data["meta_upgrades"].has(upgrade_id):
 		return save_data["meta_upgrades"][upgrade_id]["quantity"]
 	return 0
+
+
+func update_locale(new_language: String):
+	save_data["language"] = new_language
+	TranslationServer.set_locale(new_language)
+	save()
+	
 
 func on_experience_collected(number: float):
 	save_data["meta_upgrade_currency"] += number

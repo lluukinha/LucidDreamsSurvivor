@@ -35,7 +35,7 @@ func update_display():
 	var window_mode = DisplayServer.window_get_mode()
 	window_button.button_pressed = window_mode == DisplayServer.WINDOW_MODE_FULLSCREEN
 	
-	if TranslationServer.get_locale() == "pt":
+	if MetaProgression.save_data["language"] == "pt":
 		language_button.selected = 1
 	else:
 		language_button.selected = 0
@@ -53,10 +53,10 @@ func on_window_button_toggled(button_pressed):
 
 
 func on_language_selected(index):
-	if index == 0:
-		TranslationServer.set_locale("en")
-	elif index == 1:
-		TranslationServer.set_locale("pt")
+	var new_language = "en"
+	if index == 1:
+		new_language = "pt"
+	MetaProgression.update_locale(new_language)
 
 
 func on_audio_slider_changed(value: float, bus_name: String):
