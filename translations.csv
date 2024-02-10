@@ -24,6 +24,8 @@ ability_axe_name,Axe,Machado
 ability_axe_description,Periodically sends out a spinning axe,Solta um machado giratorio
 ability_axe_damage_name,Axe Damage,Dano do Machado
 ability_axe_damage_description,Increases axe damage by 10%,Aumenta ataque em 10%
+ability_anvil_name,Anvil,Bigorna
+ability_anvil_description,Drops anvils randomly on enemies,Derruma uma bigorna aleatoriamente nos inimigos
 ability_player_speed_name,Move speed,Velocidade
 ability_player_speed_description,Increases player movement speed by 10%,Aumenta velocidade de movimento em 10%
 victory_title,Victory,Vitoria
