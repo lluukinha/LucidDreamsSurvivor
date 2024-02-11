@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://0cf4wegt7ryu"]
+[gd_scene load_steps=5 format=3 uid="uid://0cf4wegt7ryu"]
 
 [ext_resource type="Script" path="res://scenes/ui/meta_menu.gd" id="1_vajd7"]
 [ext_resource type="Resource" uid="uid://brm5njm83k03s" path="res://resources/meta_upgrades/experience_gain.tres" id="2_rejed"]
+[ext_resource type="Resource" uid="uid://25j312gnovx0" path="res://resources/meta_upgrades/health_regeneration.tres" id="3_3dqi0"]
 [ext_resource type="PackedScene" uid="uid://fl2xbcx5ahha" path="res://scenes/ui/meta_upgrade_card.tscn" id="3_6e7wo"]
 
 [node name="MetaMenu" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_vajd7")
-upgrades = Array[Resource("res://resources/meta_upgrades/meta_upgrade.gd")]([ExtResource("2_rejed")])
+upgrades = Array[Resource("res://resources/meta_upgrades/meta_upgrade.gd")]([ExtResource("2_rejed"), ExtResource("3_3dqi0")])
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchors_preset = 15

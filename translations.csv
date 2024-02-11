@@ -14,6 +14,8 @@ options_language_en,English,Ingles
 options_language_pt,Brazilian Portuguese,Portugues Brasileiro
 meta_upgrades_experience_gain_title,Increase experience,Aumentar experiencia
 meta_upgrades_experience_gain_description,Increases experience drop chance by 10%,Aumenta chance de drop de experiencia em 10%
+meta_upgrades_health_regeneration_title,Health regen,Recuperar vida
+meta_upgrades_health_regeneration_description,Recover lost health from time to time,Recupera parte da vida perdida de tempos em tempos
 meta_upgrades_purchase_button,Purchase,Comprar
 meta_upgrades_maxed_quantity_label,Max,Max
 ability_sword_rate_name,Sword Quickness,Espada Veloz

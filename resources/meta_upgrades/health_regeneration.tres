@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://25j312gnovx0"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_jnyl2"]
+
+[resource]
+script = ExtResource("1_jnyl2")
+id = "health_regeneration"
+max_quantity = 10
+cost = 50
+title = "meta_upgrades_health_regeneration_title"
+description = "meta_upgrades_health_regeneration_description"

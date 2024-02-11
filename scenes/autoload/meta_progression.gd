@@ -10,7 +10,6 @@ var save_data: Dictionary = {
 	"meta_upgrades": {}
 }
 
-
 func _ready():
 	GameEvents.experience_vial_collected.connect(on_experience_collected)
 	load_save_file()
