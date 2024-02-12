@@ -7,4 +7,4 @@ script = ExtResource("1_ntmpj")
 id = "sword_damage"
 name = "ability_sword_damage_name"
 description = "ability_sword_damage_description"
-max_quantity = 5
+max_quantity = 0

@@ -7,4 +7,4 @@ script = ExtResource("1_c8q0i")
 id = "player_speed"
 name = "ability_player_speed_name"
 description = "ability_player_speed_description"
-max_quantity = 2
+max_quantity = 5

@@ -7,4 +7,4 @@ script = ExtResource("1_2btlt")
 id = "sword_rate"
 name = "ability_sword_rate_name"
 description = "ability_sword_rate_description"
-max_quantity = 5
+max_quantity = 9
