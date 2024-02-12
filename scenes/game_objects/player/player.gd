@@ -101,6 +101,8 @@ func on_hability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades
 
 
 func on_health_regeneration_timer_timeout():
+	if health_component == null:
+		return
 	var health_to_increase = MetaProgression.save_data["meta_upgrades"]["health_regeneration"]["quantity"]
 	health_component.increase_health(health_to_increase)
 	health_regeneration_timer.start()

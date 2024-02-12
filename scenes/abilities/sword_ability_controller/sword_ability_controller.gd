@@ -1,7 +1,10 @@
 extends Node
 
-const MAX_RANGE = 150
+const BASE_RANGE = 50
+
 @export var sword_ability: PackedScene
+
+var range = BASE_RANGE
 var base_damage = 5
 var additional_damage_percent = 1
 var base_wait_time: float 
@@ -21,7 +24,7 @@ func on_timer_timeout():
 	var enemies = get_tree().get_nodes_in_group("enemy");
 	enemies = enemies.filter(
 		func(enemy: Node2D):
-			return enemy.global_position.distance_squared_to(player.global_position) < pow(MAX_RANGE, 2)
+			return enemy.global_position.distance_squared_to(player.global_position) < pow(range, 2)
 	)
 	
 	if enemies.size() == 0:
@@ -52,4 +55,6 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		$Timer.wait_time = base_wait_time * (1 - percent_reduction)
 		$Timer.start()
 	elif upgrade.id == "sword_damage":
-		additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * .15)
+		additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * .5)
+	elif upgrade.id == "sword_range" && range < 150:
+		range = BASE_RANGE + (current_upgrades["sword_range"]["quantity"] * 20)
