@@ -2,9 +2,10 @@ extends Node
 
 const SPAWN_RADIUS = 375
 
-@export var basic_enemy_scene: PackedScene
-@export var wizard_enemy_scene: PackedScene
-@export var bat_enemy_scene: PackedScene
+var crab_enemy_scene = preload("res://scenes/game_objects/crab_enemy/crab_enemy.tscn")
+var basic_enemy_scene = preload("res://scenes/game_objects/basic_enemy/basic_enemy.tscn")
+var wizard_enemy_scene = preload("res://scenes/game_objects/wizard_enemy/wizard_enemy.tscn")
+var bat_enemy_scene = preload("res://scenes/game_objects/bat_enemy/bat_enemy.tscn")
 @export var arena_time_manager: Node
 
 @onready var timer: Timer = $Timer
@@ -17,6 +18,7 @@ var number_to_spawn = 1
 
 func _ready():
 	enemies_table.add_item(basic_enemy_scene, 10)
+	enemies_table.add_item(crab_enemy_scene, 9)
 	base_spawn_time = timer.wait_time
 	timer.timeout.connect(on_timer_timeout)
 	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
@@ -72,7 +74,7 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	if arena_difficulty == 8:
 		enemies_table.add_item(wizard_enemy_scene, 15)
 	elif arena_difficulty == 20:
-		enemies_table.add_item(bat_enemy_scene, 7)
+		enemies_table.add_item(bat_enemy_scene, 5)
 	
 	if number_to_spawn < 5 && arena_difficulty > 18 && (arena_difficulty % 6) == 0:
 		number_to_spawn +=1
