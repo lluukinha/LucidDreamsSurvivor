@@ -11,13 +11,16 @@ signal player_died
 @onready var velocity_component: VelocityComponent = $VelocityComponent
 @onready var health_regeneration_timer = $HealthRegenerationTimer
 
+const BASE_HEALTH = 10
 
-var number_colliding_bodies = 0;
+var number_colliding_bodies = 0
 var base_speed = 0
 var can_move = true
 var is_dead = false
 
 func _ready():
+	var max_health_quantity = MetaProgression.get_upgrade_count("maximum_health")
+	health_component.update_max_health(BASE_HEALTH + (max_health_quantity * 10))
 	health_component.died.connect(on_player_died)
 	base_speed = velocity_component.max_speed
 	

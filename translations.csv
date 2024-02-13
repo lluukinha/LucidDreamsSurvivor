@@ -12,8 +12,8 @@ options_music_volume,Music volume,Volume da Musica
 options_window_mode,Fullscreen,Tela cheia
 options_language_en,English,Ingles
 options_language_pt,Brazilian Portuguese,Portugues Brasileiro
-meta_upgrades_experience_gain_title,Increase experience,Aumentar experiencia
-meta_upgrades_experience_gain_description,Increases experience drop chance by 10%,Aumenta chance de drop de experiencia em 10%
+meta_upgrades_maximum_health_title,Increase health,Aumentar vida
+meta_upgrades_maximum_health_description,Increases player maximum health,Aumenta vida maxima do jogador
 meta_upgrades_health_regeneration_title,Health regen,Recuperar vida
 meta_upgrades_health_regeneration_description,Recover lost health from time to time,Recupera parte da vida perdida de tempos em tempos
 meta_upgrades_purchase_button,Purchase,Comprar
@@ -21,13 +21,13 @@ meta_upgrades_maxed_quantity_label,Max,Max
 ability_sword_rate_name,Sword Quickness,Espada Veloz
 ability_sword_rate_description,Increases sword attack rate by 10%,Aumenta velocidade do ataque em 10%
 ability_sword_damage_name,Sword Damage,Dano da Espada
-ability_sword_damage_description,Increases sword damage by 15%,Aumenta o ataque em 15%
+ability_sword_damage_description,Increases sword damage,Aumenta o ataque da espada
 ability_sword_range_name,Sword range,Alcance da Espada
 ability_sword_range_description,Increase sword range,Aumenta a distancia do alcance da espada
 ability_axe_name,Axe,Machado
 ability_axe_description,Periodically sends out a spinning axe,Solta um machado giratorio
 ability_axe_damage_name,Axe Damage,Dano do Machado
-ability_axe_damage_description,Increases axe damage by 10%,Aumenta ataque em 10%
+ability_axe_damage_description,Increases axe damage,Aumenta ataque do machado
 ability_anvil_name,Anvil,Bigorna
 ability_anvil_description,Drops anvils randomly on enemies,Derruba uma bigorna aleatoriamente nos inimigos
 ability_anvil_amount_name,Anvil count,Bigorna adicional

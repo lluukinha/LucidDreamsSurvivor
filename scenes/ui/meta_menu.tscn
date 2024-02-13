@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://0cf4wegt7ryu"]
 
 [ext_resource type="Script" path="res://scenes/ui/meta_menu.gd" id="1_vajd7"]
-[ext_resource type="Resource" uid="uid://brm5njm83k03s" path="res://resources/meta_upgrades/experience_gain.tres" id="2_rejed"]
+[ext_resource type="Resource" uid="uid://brm5njm83k03s" path="res://resources/meta_upgrades/maximum_health.tres" id="2_rejed"]
 [ext_resource type="Resource" uid="uid://25j312gnovx0" path="res://resources/meta_upgrades/health_regeneration.tres" id="3_3dqi0"]
 [ext_resource type="PackedScene" uid="uid://fl2xbcx5ahha" path="res://scenes/ui/meta_upgrade_card.tscn" id="3_6e7wo"]
 

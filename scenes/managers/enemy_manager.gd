@@ -52,6 +52,10 @@ func on_timer_timeout():
 	
 	timer.start()
 	
+	var enemies_on_scene = get_tree().get_nodes_in_group("enemy").size()
+	if enemies_on_scene > 80:
+		return
+	
 	for i in number_to_spawn:
 		var enemy_scene = enemies_table.pick_item() as PackedScene
 		var enemy = enemy_scene.instantiate() as Node2D

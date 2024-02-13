@@ -14,6 +14,11 @@ func _ready():
 	current_health = max_health
 
 
+func update_max_health(new_max_health: float):
+	max_health = new_max_health
+	current_health = new_max_health
+
+
 func damage(damage_amount: float):
 	current_health = max(current_health - damage_amount, 0)
 	deal_damage.emit()
