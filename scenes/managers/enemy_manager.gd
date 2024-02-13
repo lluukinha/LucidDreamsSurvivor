@@ -55,7 +55,7 @@ func on_timer_timeout():
 	timer.start()
 	
 	var enemies_on_scene = get_tree().get_nodes_in_group("enemy").size()
-	if enemies_on_scene > 80:
+	if enemies_on_scene > 90:
 		return
 	
 	for i in number_to_spawn:
