@@ -1,13 +1,12 @@
 extends Node
 class_name GameLevel
 
-@export var end_screen_scene: PackedScene
-
-@onready var arena_time_manager = $ArenaTimeManager
+@onready var arena_time_manager: ArenaTimeManager = $ArenaTimeManager
 @onready var player: Player = %Player
 @onready var vignette: Vignette = $Vignette
 
 
+var end_screen_scene = preload("res://scenes/ui/end_screen.tscn")
 var pause_menu_scene = preload("res://scenes/ui/pause_menu.tscn")
 
 
@@ -24,15 +23,13 @@ func _unhandled_input(event):
 		get_tree().root.set_input_as_handled()
 
 
-func collect_all_and_finish():
+func collect_all_vials():
 	var vials = get_tree().get_nodes_in_group("experience") as Array[ExperienceVial]
-	if vials.is_empty():
-		show_end_screen(false)
-	else:
+	if vials.size() > 0:
 		for vial in vials:
 			vial.collect_vial(1.0)
 		await get_tree().create_timer(1.0).timeout
-		collect_all_and_finish()
+		collect_all_vials()
 
 
 func show_end_screen(player_died: bool):
@@ -42,15 +39,16 @@ func show_end_screen(player_died: bool):
 		end_screen_instance.set_defeat()
 	else:
 		end_screen_instance.play_jingle(false)
+		MetaProgression.level_up()
+
 	MetaProgression.save()
 
 
 func freeze_game():
-	player.can_move = false
+	# player.can_move = false
 	$MusicPlayer.stop()
 	$EnemyManager.can_spawn = false
 	$UpgradeManager.can_level_up = false
-	(arena_time_manager.timer as Timer).stop()
 
 
 func set_hero(hero: HeroResource):
@@ -68,4 +66,8 @@ func on_player_died():
 func on_arena_timeout():
 	freeze_game()
 	get_tree().call_group("enemy", "die")
-	collect_all_and_finish()
+	arena_time_manager.stop_timer()
+	$ArenaTimeUI.visible = false
+	collect_all_vials()
+	await get_tree().create_timer(5.0).timeout
+	show_end_screen(false)

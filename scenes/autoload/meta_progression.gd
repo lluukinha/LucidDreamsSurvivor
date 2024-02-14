@@ -7,13 +7,13 @@ var save_data: Dictionary = {
 	"win_count": 0,
 	"loss_count": 0,
 	"meta_upgrade_currency": 0,
+	"discovered_heroes": ["morengo"],
 	"meta_upgrades": {}
 }
 
 func _ready():
 	GameEvents.experience_vial_collected.connect(on_experience_collected)
 	load_save_file()
-	print(TranslationServer.get_locale())
 	TranslationServer.set_locale(save_data["language"])
 
 
@@ -22,6 +22,14 @@ func load_save_file():
 		return
 	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
 	save_data = file.get_var()
+
+
+func level_up():
+	var current_hero = GameEvents.selected_hero as HeroResource
+	if !save_data["discovered_heroes"].has("cebolito"):
+		save_data["discovered_heroes"].append("cebolito")
+	elif current_hero.id == 'cebolito' && !save_data["discovered_heroes"].has("brocoleo"):
+		save_data["discovered_heroes"].append("brocoleo")
 
 
 func save():

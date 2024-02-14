@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dv3dgdedxmf84"]
+[gd_scene load_steps=14 format=3 uid="uid://dv3dgdedxmf84"]
 
 [ext_resource type="PackedScene" uid="uid://c6k0vhl5ba3lo" path="res://scenes/game_objects/player/player.tscn" id="1_6rgid"]
 [ext_resource type="TileSet" uid="uid://ct068f3i5huv1" path="res://resources/tileset.tres" id="1_flolg"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://c72hqwnmc2wet" path="res://scenes/game_objects/game_camera/game_camera.tscn" id="1_upqem"]
 [ext_resource type="PackedScene" uid="uid://c3adxklcy2vow" path="res://scenes/managers/arena_time_manager.tscn" id="2_jiskq"]
 [ext_resource type="PackedScene" uid="uid://ch7pdq6yqvjj7" path="res://scenes/ui/experience_bar.tscn" id="2_lmwhn"]
-[ext_resource type="PackedScene" uid="uid://bu2u8exw8x66k" path="res://scenes/ui/end_screen.tscn" id="2_n18sq"]
 [ext_resource type="PackedScene" uid="uid://bdxigk48ligcp" path="res://scenes/ui/vignette.tscn" id="3_1j0yr"]
 [ext_resource type="PackedScene" uid="uid://bbihxhxetr654" path="res://scenes/components/music_player_component.tscn" id="3_pi6ec"]
 [ext_resource type="PackedScene" uid="uid://bjplux8p518my" path="res://scenes/managers/experience_manager.tscn" id="4_gpt8d"]
@@ -17,7 +16,6 @@
 
 [node name="Main" type="Node" groups=["level"]]
 script = ExtResource("1_prcbe")
-end_screen_scene = ExtResource("2_n18sq")
 
 [node name="MusicPlayer" parent="." instance=ExtResource("3_pi6ec")]
 music_stream = ExtResource("4_kqr11")
