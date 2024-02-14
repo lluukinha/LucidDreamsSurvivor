@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtgwak83ih631"
-path="res://.godot/imported/player.png-2d6f809e5b6207f5f65ea40b247f19b7.ctex"
+uid="uid://cc5sjg4ceb8l8"
+path="res://.godot/imported/brocoleo.png-6df17788a56ed9a7fd90dbf5f1173eba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/game_objects/player/player.png"
-dest_files=["res://.godot/imported/player.png-2d6f809e5b6207f5f65ea40b247f19b7.ctex"]
+source_file="res://resources/heroes/brocoleo.png"
+dest_files=["res://.godot/imported/brocoleo.png-6df17788a56ed9a7fd90dbf5f1173eba.ctex"]
 
 [params]
 

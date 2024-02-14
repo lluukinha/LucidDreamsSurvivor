@@ -4,8 +4,9 @@ extends CanvasLayer
 
 var morengo_hero = preload("res://resources/heroes/morengo.tres")
 var cebolito_hero = preload("res://resources/heroes/cebolito.tres")
+var brocoleo_hero = preload("res://resources/heroes/brocoleo.tres")
 
-var heroes = [morengo_hero, cebolito_hero]
+var heroes = [morengo_hero, cebolito_hero, brocoleo_hero]
 var hero_card_scene = preload("res://scenes/ui/hero_card.tscn")
 
 func _ready():

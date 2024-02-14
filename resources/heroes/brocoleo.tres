@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HeroResource" load_steps=5 format=3 uid="uid://ds51br32qubj4"]
+
+[ext_resource type="Texture2D" uid="uid://b57y4jh1mb3ju" path="res://resources/heroes/brocoleo_big.png" id="1_dfbi7"]
+[ext_resource type="Script" path="res://resources/heroes/hero.gd" id="2_sm4l8"]
+[ext_resource type="Texture2D" uid="uid://cc5sjg4ceb8l8" path="res://resources/heroes/brocoleo.png" id="3_i5sqe"]
+[ext_resource type="Resource" uid="uid://cqfc86t5e8xs8" path="res://resources/upgrades/axe.tres" id="4_ifibe"]
+
+[resource]
+script = ExtResource("2_sm4l8")
+id = "brocoleo"
+name = "Brocoleo"
+image = ExtResource("1_dfbi7")
+sprite = ExtResource("3_i5sqe")
+start_ability = ExtResource("4_ifibe")

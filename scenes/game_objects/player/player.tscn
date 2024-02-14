@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6k0vhl5ba3lo"]
+[gd_scene load_steps=18 format=3 uid="uid://c6k0vhl5ba3lo"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/player/player.gd" id="1_6hhjf"]
 [ext_resource type="PackedScene" uid="uid://g38lucl12bnx" path="res://scenes/components/health_component.tscn" id="2_4eg02"]
-[ext_resource type="Texture2D" uid="uid://dtgwak83ih631" path="res://scenes/game_objects/player/player.png" id="2_5c242"]
 [ext_resource type="PackedScene" uid="uid://8moua6rficel" path="res://scenes/components/velocity_component.tscn" id="2_csre0"]
 [ext_resource type="PackedScene" uid="uid://dpb2pclf6b7xv" path="res://scenes/components/random_stream_player_2d_component.tscn" id="5_f2seg"]
 [ext_resource type="AudioStream" uid="uid://cejchrhij8ur" path="res://assets/audio/impactMining_000.ogg" id="6_5586d"]
@@ -195,7 +194,6 @@ shape = SubResource("CircleShape2D_gsktq")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
-texture = ExtResource("2_5c242")
 offset = Vector2(0, -8)
 
 [node name="CollisionArea2D" type="Area2D" parent="."]
