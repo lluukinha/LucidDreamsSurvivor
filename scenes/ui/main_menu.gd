@@ -10,7 +10,7 @@ func _ready():
 
 
 func on_play_pressed():
-	ScreenTransition.transition_to_scene("res://scenes/main/main.tscn")
+	ScreenTransition.transition_to_scene("res://scenes/ui/player_selection.tscn")
 
 
 func on_upgrades_pressed():

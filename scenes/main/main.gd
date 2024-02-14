@@ -1,9 +1,10 @@
 extends Node
+class_name GameLevel
 
 @export var end_screen_scene: PackedScene
 
 @onready var arena_time_manager = $ArenaTimeManager
-@onready var player = %Player
+@onready var player: Player = %Player
 @onready var vignette: Vignette = $Vignette
 
 
@@ -14,6 +15,7 @@ func _ready():
 	vignette.animation_player.play("RESET")
 	player.player_died.connect(on_player_died)
 	arena_time_manager.arena_timeout.connect(on_arena_timeout)
+	set_hero(GameEvents.selected_hero)
 
 
 func _unhandled_input(event):
@@ -49,7 +51,12 @@ func freeze_game():
 	$EnemyManager.can_spawn = false
 	$UpgradeManager.can_level_up = false
 	(arena_time_manager.timer as Timer).stop()
-	
+
+
+func set_hero(hero: HeroResource):
+	player.set_sprite(hero.sprite)
+	$UpgradeManager.apply_upgrade(hero.start_ability)
+
 
 func on_player_died():
 	freeze_game()

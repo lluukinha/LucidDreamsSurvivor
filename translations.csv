@@ -18,6 +18,8 @@ meta_upgrades_health_regeneration_title,Health regen,Recuperar vida
 meta_upgrades_health_regeneration_description,Recover lost health from time to time,Recupera parte da vida perdida de tempos em tempos
 meta_upgrades_purchase_button,Purchase,Comprar
 meta_upgrades_maxed_quantity_label,Max,Max
+ability_sword_name,Sword,Espada
+ability_sword_description,Attack with a sword,Ataca com uma espada
 ability_sword_rate_name,Sword Quickness,Espada Veloz
 ability_sword_rate_description,Increases sword attack rate by 10%,Aumenta velocidade do ataque em 10%
 ability_sword_damage_name,Sword Damage,Dano da Espada

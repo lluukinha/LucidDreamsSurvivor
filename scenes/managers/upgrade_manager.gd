@@ -7,6 +7,7 @@ var current_upgrades = {}
 var upgrade_pool: WeightedTable = WeightedTable.new()
 var can_level_up = true
 
+var upgrade_sword = preload("res://resources/upgrades/sword.tres")
 var upgrade_axe = preload("res://resources/upgrades/axe.tres")
 var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
 var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
@@ -17,11 +18,9 @@ var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
 var upgrade_anvil_amount = preload("res://resources/upgrades/anvil_amount.tres")
 
 func _ready():
+	upgrade_pool.add_item(upgrade_sword, 10)
 	upgrade_pool.add_item(upgrade_axe, 10)
 	upgrade_pool.add_item(upgrade_anvil, 10)
-	upgrade_pool.add_item(upgrade_sword_rate, 10)
-	upgrade_pool.add_item(upgrade_sword_range, 10)
-	upgrade_pool.add_item(upgrade_sword_damage, 10)
 	upgrade_pool.add_item(upgrade_player_speed, 10)
 	experience_manager.level_up.connect(on_level_up)
 
@@ -46,7 +45,11 @@ func apply_upgrade(upgrade: AbilityUpgrade):
 
 
 func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
-	if chosen_upgrade.id == upgrade_axe.id:
+	if chosen_upgrade.id == upgrade_sword.id:
+		upgrade_pool.add_item(upgrade_sword_rate, 10)
+		upgrade_pool.add_item(upgrade_sword_range, 10)
+		upgrade_pool.add_item(upgrade_sword_damage, 10)
+	elif chosen_upgrade.id == upgrade_axe.id:
 		upgrade_pool.add_item(upgrade_axe_damage, 10)
 	elif chosen_upgrade.id == upgrade_anvil.id:
 		upgrade_pool.add_item(upgrade_anvil_amount, 10)

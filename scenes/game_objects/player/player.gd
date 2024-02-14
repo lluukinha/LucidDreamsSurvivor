@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 signal player_died
 
@@ -72,6 +73,10 @@ func check_deal_damage():
 
 func update_health_display():
 	health_bar.value = health_component.get_health_percent()
+
+
+func set_sprite(new_texture: Texture2D):
+	$Visuals/Sprite2D.texture = new_texture
 
 
 func on_body_entered(_other_body: Node2D):
