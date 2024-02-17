@@ -42,6 +42,8 @@ ability_super_axe_amount_name,Amount,Adicional
 ability_super_axe_amount_description,Adds 1 additional super axe,Adiciona mais um machadao
 ability_player_speed_name,Speed,Velocidade
 ability_player_speed_description,Increases player movement speed,Aumenta velocidade de movimento
+ability_get_vials_name,Vials,Vials
+ability_get_vials_description,Get all vials on the floor,Pega todos os vials jogados no chao
 victory_title,Victory,Vitoria
 victory_description,You won!,Voce venceu
 defeat_title,Defeat,Derrota

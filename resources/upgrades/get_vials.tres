@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://eo26wcymmqbt"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_mbq47"]
+[ext_resource type="Texture2D" uid="uid://dwlgth781t07n" path="res://scenes/game_objects/experience_vial/experience_vial.png" id="2_c5iqo"]
+
+[resource]
+script = ExtResource("1_mbq47")
+id = "get_vials"
+name = "ability_get_vials_name"
+description = "ability_get_vials_description"
+max_quantity = 0
+texture = ExtResource("2_c5iqo")
+trackable = false

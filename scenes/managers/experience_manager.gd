@@ -32,4 +32,3 @@ func update_level():
 	current_experience = 0
 	experience_updated.emit(current_experience, target_experience)
 	level_up.emit(current_level)
-

@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 signal player_died
+signal collect_vials
 
 @onready var damage_interval_timer = $DamageIntervalTimer
 @onready var health_component: HealthComponent = $HealthComponent
@@ -21,7 +22,7 @@ var is_dead = false
 
 func _ready():
 	var max_health_quantity = MetaProgression.get_upgrade_count("maximum_health")
-	health_component.update_max_health(BASE_HEALTH + (max_health_quantity * 10))
+	health_component.update_max_health(BASE_HEALTH + (max_health_quantity * 5))
 	health_component.died.connect(on_player_died)
 	base_speed = velocity_component.max_speed
 	
@@ -109,6 +110,8 @@ func on_hability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades
 	elif ability_upgrade.id == "health_recovery":
 		var health_to_recovery = health_component.max_health - health_component.current_health		
 		health_component.increase_health(health_to_recovery)
+	elif ability_upgrade.id == "get_vials":
+		collect_vials.emit()
 
 
 func remove_ability(ability_upgrade: AbilityUpgrade):

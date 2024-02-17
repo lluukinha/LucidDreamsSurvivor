@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://be5nwwra508vl"]
+
+[ext_resource type="Script" path="res://scenes/ui/vials_count_ui.gd" id="1_13bfp"]
+[ext_resource type="Texture2D" uid="uid://dwlgth781t07n" path="res://scenes/game_objects/experience_vial/experience_vial.png" id="1_max5o"]
+
+[node name="VialsCountUI" type="CanvasLayer"]
+script = ExtResource("1_13bfp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 16.0
+grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 9
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_max5o")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "100"
+vertical_alignment = 2

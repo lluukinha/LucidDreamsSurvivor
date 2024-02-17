@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch7pdq6yqvjj7"]
+[gd_scene load_steps=5 format=3 uid="uid://ch7pdq6yqvjj7"]
 
 [ext_resource type="Script" path="res://scenes/ui/experience_bar.gd" id="1_t2hj0"]
+[ext_resource type="Texture2D" uid="uid://dwlgth781t07n" path="res://scenes/game_objects/experience_vial/experience_vial.png" id="2_h8b5j"]
+[ext_resource type="Texture2D" uid="uid://bblrb1ll4cn2g" path="res://resources/heroes/morengo.png" id="3_8xtvb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0e0io"]
 bg_color = Color(0.458824, 0.890196, 1, 1)
@@ -25,11 +27,42 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="VialContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VialContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VialImage" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VialContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_h8b5j")
+
+[node name="VialsCountLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VialContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "100"
+
+[node name="LevelContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_right = 16
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/LevelContainer"]
+layout_mode = 2
+
+[node name="PlayerImage" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/LevelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_8xtvb")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/LevelContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"BlueOutlineLabel"

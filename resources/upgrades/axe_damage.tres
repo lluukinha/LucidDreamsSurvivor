@@ -8,6 +8,6 @@ script = ExtResource("1_q5lrv")
 id = "axe_damage"
 name = "ability_axe_damage_name"
 description = "ability_axe_damage_description"
-max_quantity = 5
+max_quantity = 4
 texture = ExtResource("2_p4gdx")
 trackable = true

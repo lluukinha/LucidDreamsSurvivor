@@ -6,6 +6,9 @@ var crab_enemy_scene = preload("res://scenes/game_objects/crab_enemy/crab_enemy.
 var basic_enemy_scene = preload("res://scenes/game_objects/basic_enemy/basic_enemy.tscn")
 var wizard_enemy_scene = preload("res://scenes/game_objects/wizard_enemy/wizard_enemy.tscn")
 var bat_enemy_scene = preload("res://scenes/game_objects/bat_enemy/bat_enemy.tscn")
+var lizard_enemy_scene = preload("res://scenes/game_objects/lizard_enemy/lizard_enemy.tscn")
+var red_rat_enemy_scene = preload("res://scenes/game_objects/red_rat_enemy/red_rat_enemy.tscn")
+
 @export var arena_time_manager: Node
 
 @onready var timer: Timer = $Timer
@@ -71,10 +74,14 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	time_off = min(time_off, 0.7)
 	timer.wait_time = base_spawn_time - time_off
 	
-	if arena_difficulty == 8:
+	if arena_difficulty == 10:
 		enemies_table.add_item(wizard_enemy_scene, 15)
-	elif arena_difficulty == 20:
-		enemies_table.add_item(bat_enemy_scene, 5)
+	elif arena_difficulty == 18:
+		enemies_table.add_item(bat_enemy_scene, 8)
+	elif arena_difficulty == 80:
+		enemies_table.add_item(red_rat_enemy_scene, 15)
+	elif arena_difficulty == 100:
+		enemies_table.add_item(lizard_enemy_scene, 7)
 	
-	if number_to_spawn < 5 && arena_difficulty > 18 && (arena_difficulty % 6) == 0:
+	if number_to_spawn < 7 && arena_difficulty > 18 && (arena_difficulty % 6) == 0:
 		number_to_spawn +=1

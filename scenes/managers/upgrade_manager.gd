@@ -10,6 +10,7 @@ var current_upgrades = {}
 var upgrade_pool: WeightedTable = WeightedTable.new()
 var can_level_up = true
 
+var upgrade_get_vials = preload("res://resources/upgrades/get_vials.tres")
 var upgrade_health_recovery = preload("res://resources/upgrades/health_recovery.tres")
 var upgrade_sword = preload("res://resources/upgrades/sword.tres")
 var upgrade_axe = preload("res://resources/upgrades/axe.tres")
@@ -29,6 +30,7 @@ func _ready():
 	upgrade_pool.add_item(upgrade_anvil, 10)
 	upgrade_pool.add_item(upgrade_player_speed, 10)
 	upgrade_pool.add_item(upgrade_health_recovery, 10)
+	upgrade_pool.add_item(upgrade_get_vials, 10)
 	experience_manager.level_up.connect(on_level_up)
 
 
@@ -70,7 +72,7 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 	elif chosen_upgrade.id == upgrade_anvil.id:
 		upgrade_pool.add_item(upgrade_anvil_amount, 10)
 	elif chosen_upgrade.id == upgrade_axe_damage.id && current_upgrades[upgrade_axe_damage.id]["quantity"] == upgrade_axe_damage.max_quantity:
-		upgrade_pool.add_item(upgrade_super_axe, 999)
+		upgrade_pool.add_item(upgrade_super_axe, 9999)
 	elif chosen_upgrade.id == upgrade_super_axe.id:
 		upgrade_pool.add_item(upgrade_super_axe_amount, 10)
 		upgrade_pool.remove_item(upgrade_axe)

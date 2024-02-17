@@ -6,6 +6,7 @@ class_name GameLevel
 @onready var vignette: Vignette = $Vignette
 @onready var upgrade_manager: UpgradeManager = $UpgradeManager
 @onready var upgrades_ui: UpgradesUI = $UpgradesUI
+@onready var experience_manager: ExperienceManager = $ExperienceManager
 
 
 var end_screen_scene = preload("res://scenes/ui/end_screen.tscn")
@@ -17,12 +18,8 @@ func _ready():
 	player.player_died.connect(on_player_died)
 	arena_time_manager.arena_timeout.connect(on_arena_timeout)
 	upgrade_manager.remove_ability.connect(on_remove_ability)
+	player.collect_vials.connect(collect_all_vials)
 	set_hero(GameEvents.selected_hero)
-
-
-func on_remove_ability(ability: AbilityUpgrade):
-	player.remove_ability(ability)
-	upgrades_ui.remove_upgrade(ability)
 
 
 func _unhandled_input(event):
@@ -35,7 +32,7 @@ func collect_all_vials():
 	var vials = get_tree().get_nodes_in_group("experience") as Array[ExperienceVial]
 	if vials.size() > 0:
 		for vial in vials:
-			vial.collect_vial(1.0)
+			vial.collect_vial(.5)
 		await get_tree().create_timer(1.0).timeout
 		collect_all_vials()
 
@@ -79,3 +76,8 @@ func on_arena_timeout():
 	collect_all_vials()
 	await get_tree().create_timer(5.0).timeout
 	show_end_screen(false)
+
+
+func on_remove_ability(ability: AbilityUpgrade):
+	player.remove_ability(ability)
+	upgrades_ui.remove_upgrade(ability)
