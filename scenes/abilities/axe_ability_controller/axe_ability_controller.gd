@@ -1,9 +1,8 @@
 extends Node
 
-@export var axe_ability_scene: PackedScene
-
 var base_damage = 10
 var additional_damage_percent = 1
+var axe_ability_scene: PackedScene = preload("res://scenes/abilities/axe_ability/axe_ability.tscn")
 
 func _ready():
 	$Timer.timeout.connect(on_timer_timeout)

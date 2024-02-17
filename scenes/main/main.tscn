@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dv3dgdedxmf84"]
+[gd_scene load_steps=15 format=3 uid="uid://dv3dgdedxmf84"]
 
 [ext_resource type="PackedScene" uid="uid://c6k0vhl5ba3lo" path="res://scenes/game_objects/player/player.tscn" id="1_6rgid"]
 [ext_resource type="TileSet" uid="uid://ct068f3i5huv1" path="res://resources/tileset.tres" id="1_flolg"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bjplux8p518my" path="res://scenes/managers/experience_manager.tscn" id="4_gpt8d"]
 [ext_resource type="AudioStream" uid="uid://dby1m6acb7e8j" path="res://assets/audio/Hear+What+They+Say.mp3" id="4_kqr11"]
 [ext_resource type="PackedScene" uid="uid://gwdhdhfu38r" path="res://scenes/managers/upgrade_manager.tscn" id="6_7gha4"]
+[ext_resource type="PackedScene" uid="uid://csq7qcro0s1td" path="res://scenes/ui/upgrades_ui.tscn" id="7_yrob6"]
 
 [node name="Main" type="Node" groups=["level"]]
 script = ExtResource("1_prcbe")
@@ -27,6 +28,8 @@ arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="ExperienceBar" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("2_lmwhn")]
 experience_manager = NodePath("../ExperienceManager")
+
+[node name="UpgradesUI" parent="." groups=["upgrades_ui"] instance=ExtResource("7_yrob6")]
 
 [node name="ArenaTimeManager" parent="." instance=ExtResource("2_jiskq")]
 

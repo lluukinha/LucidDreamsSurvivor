@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://duhklbipus26c"]
+[gd_scene load_steps=22 format=3 uid="uid://duhklbipus26c"]
 
 [ext_resource type="Script" path="res://scenes/ui/ability_upgrade_card.gd" id="1_dkygq"]
 [ext_resource type="PackedScene" uid="uid://d01qsx7i43xtf" path="res://scenes/components/random_stream_player_component.tscn" id="2_mdlll"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://wxhw2d8a57vq" path="res://assets/audio/switch8.ogg" id="10_klv7k"]
 [ext_resource type="AudioStream" uid="uid://bascgfej2q8rg" path="res://assets/audio/switch9.ogg" id="11_gj1dh"]
 [ext_resource type="AudioStream" uid="uid://drybao4e5oqdd" path="res://assets/audio/switch10.ogg" id="12_gt1i4"]
+[ext_resource type="Texture2D" uid="uid://comt1fbyvtg15" path="res://scenes/abilities/ability_images/sword_range.png" id="13_fr0ah"]
 
 [sub_resource type="Animation" id="Animation_bc274"]
 length = 0.001
@@ -218,7 +219,18 @@ layout_mode = 2
 mouse_filter = 2
 theme_type_variation = &"AlternatePanelContainer"
 
-[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="AbilityImage" type="TextureRect" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("13_fr0ah")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2

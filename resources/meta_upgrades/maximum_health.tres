@@ -6,6 +6,6 @@
 script = ExtResource("1_it1ou")
 id = "maximum_health"
 max_quantity = 10
-cost = 500
+cost = 300
 title = "meta_upgrades_maximum_health_title"
 description = "meta_upgrades_maximum_health_description"

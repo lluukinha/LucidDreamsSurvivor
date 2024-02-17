@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bafvmvhyk8pma"]
 
-[ext_resource type="Texture2D" uid="uid://dhlftplxd4j3k" path="res://scenes/abilities/sword/sword.png" id="1_3gqbq"]
 [ext_resource type="Script" path="res://scenes/abilities/sword/sword_ability.gd" id="1_wakkr"]
+[ext_resource type="Texture2D" uid="uid://dhlftplxd4j3k" path="res://scenes/abilities/ability_images/sword.png" id="2_o0ehs"]
 [ext_resource type="PackedScene" uid="uid://begogmthhosrw" path="res://scenes/components/hitbox_component.tscn" id="2_w2080"]
 
 [sub_resource type="Animation" id="Animation_gxtvx"]
@@ -116,7 +116,7 @@ libraries = {
 autoplay = "swing"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3gqbq")
+texture = ExtResource("2_o0ehs")
 offset = Vector2(0, -4)
 
 [node name="HitboxComponent" parent="." instance=ExtResource("2_w2080")]

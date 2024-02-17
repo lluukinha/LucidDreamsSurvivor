@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://5dgvakpgxe6x"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://5dgvakpgxe6x"]
 
 [ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_ky64i"]
+[ext_resource type="Texture2D" uid="uid://cttq8n03rjk6j" path="res://scenes/abilities/ability_images/anvil.png" id="2_c73be"]
 
 [resource]
 script = ExtResource("1_ky64i")
@@ -8,3 +9,4 @@ id = "anvil_amount"
 name = "ability_anvil_amount_name"
 description = "ability_anvil_amount_description"
 max_quantity = 3
+texture = ExtResource("2_c73be")

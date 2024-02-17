@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bghm73vjjsg6c"
-path="res://.godot/imported/axe.png-08bd2659674fbb1ddbebfaf687480d20.ctex"
+uid="uid://ban0k6mqkyfw6"
+path="res://.godot/imported/health_regeneration.png-f2a145a78d7070ab1fd757040917b6c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/abilities/axe_ability/axe.png"
-dest_files=["res://.godot/imported/axe.png-08bd2659674fbb1ddbebfaf687480d20.ctex"]
+source_file="res://scenes/abilities/ability_images/health_regeneration.png"
+dest_files=["res://.godot/imported/health_regeneration.png-f2a145a78d7070ab1fd757040917b6c8.ctex"]
 
 [params]
 

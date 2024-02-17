@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://resources/heroes/hero.gd" id="1_1bsq4"]
 [ext_resource type="Texture2D" uid="uid://ds65sm1n2i7w3" path="res://resources/heroes/morengo_big.png" id="1_olj88"]
-[ext_resource type="Texture2D" uid="uid://dtyddykhr7w3o" path="res://resources/heroes/morengo.png" id="3_jm6j8"]
-[ext_resource type="Resource" uid="uid://b2oadctqst1pn" path="res://resources/upgrades/sword.tres" id="4_fduv3"]
+[ext_resource type="Texture2D" uid="uid://bblrb1ll4cn2g" path="res://resources/heroes/morengo.png" id="3_jm6j8"]
+[ext_resource type="Resource" uid="uid://b2oadctqst1pn" path="res://resources/upgrades/sword.tres" id="4_xydrc"]
 
 [resource]
 script = ExtResource("1_1bsq4")
@@ -11,4 +11,4 @@ id = "morengo"
 name = "Morengo"
 image = ExtResource("1_olj88")
 sprite = ExtResource("3_jm6j8")
-start_ability = ExtResource("4_fduv3")
+start_ability = ExtResource("4_xydrc")

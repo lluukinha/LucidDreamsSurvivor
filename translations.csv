@@ -18,24 +18,30 @@ meta_upgrades_health_regeneration_title,Health regen,Recuperar vida
 meta_upgrades_health_regeneration_description,Recover lost health from time to time,Recupera parte da vida perdida de tempos em tempos
 meta_upgrades_purchase_button,Purchase,Comprar
 meta_upgrades_maxed_quantity_label,Max,Max
+ability_health_recovery_name,Potion,Pocao
+ability_health_recovery_description,Recover lost health,Recupera vida perdida
 ability_sword_name,Sword,Espada
 ability_sword_description,Attack with a sword,Ataca com uma espada
-ability_sword_rate_name,Sword Quickness,Espada Veloz
-ability_sword_rate_description,Increases sword attack rate by 10%,Aumenta velocidade do ataque em 10%
-ability_sword_damage_name,Sword Damage,Dano da Espada
+ability_sword_rate_name,Quickness,Velocidade
+ability_sword_rate_description,Increases sword attack rate,Aumenta velocidade do ataque da espada
+ability_sword_damage_name,Damage,Dano
 ability_sword_damage_description,Increases sword damage,Aumenta o ataque da espada
-ability_sword_range_name,Sword range,Alcance da Espada
+ability_sword_range_name,Range,Alcance
 ability_sword_range_description,Increase sword range,Aumenta a distancia do alcance da espada
 ability_axe_name,Axe,Machado
 ability_axe_description,Periodically sends out a spinning axe,Solta um machado giratorio
-ability_axe_damage_name,Axe Damage,Dano do Machado
+ability_axe_damage_name,Damage,Dano
 ability_axe_damage_description,Increases axe damage,Aumenta ataque do machado
 ability_anvil_name,Anvil,Bigorna
 ability_anvil_description,Drops anvils randomly on enemies,Derruba uma bigorna aleatoriamente nos inimigos
-ability_anvil_amount_name,Anvil count,Bigorna adicional
+ability_anvil_amount_name,Amount,Adicional
 ability_anvil_amount_description,Adds 1 additional anvil,Adiciona mais uma bigorna
-ability_player_speed_name,Move speed,Velocidade
-ability_player_speed_description,Increases player movement speed by 10%,Aumenta velocidade de movimento em 10%
+ability_super_axe_name,Super axe,Machadao
+ability_super_axe_description,Now the axe spins on same radius,Agora o machado gira no mesmo eixo
+ability_super_axe_amount_name,Amount,Adicional
+ability_super_axe_amount_description,Adds 1 additional super axe,Adiciona mais um machadao
+ability_player_speed_name,Speed,Velocidade
+ability_player_speed_description,Increases player movement speed,Aumenta velocidade de movimento
 victory_title,Victory,Vitoria
 victory_description,You won!,Voce venceu
 defeat_title,Defeat,Derrota

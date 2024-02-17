@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://tj53to3thwtp"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://tj53to3thwtp"]
 
 [ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_ntmpj"]
+[ext_resource type="Texture2D" uid="uid://cppmsvocy34u1" path="res://scenes/abilities/ability_images/sword_damage.png" id="2_pqh1c"]
 
 [resource]
 script = ExtResource("1_ntmpj")
@@ -8,3 +9,4 @@ id = "sword_damage"
 name = "ability_sword_damage_name"
 description = "ability_sword_damage_description"
 max_quantity = 0
+texture = ExtResource("2_pqh1c")

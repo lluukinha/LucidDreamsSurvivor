@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://eimoj5stfa4h"]
+[gd_scene load_steps=8 format=3 uid="uid://10n4y8hqan34"]
 
-[ext_resource type="Script" path="res://scenes/abilities/axe_ability/axe_ability.gd" id="1_armtw"]
-[ext_resource type="Texture2D" uid="uid://b4qhptrg3xmjo" path="res://scenes/abilities/ability_images/axe.png" id="2_x73hf"]
-[ext_resource type="PackedScene" uid="uid://begogmthhosrw" path="res://scenes/components/hitbox_component.tscn" id="3_1rdb0"]
+[ext_resource type="Script" path="res://scenes/abilities/super_axe_ability/super_axe_ability.gd" id="1_mplac"]
+[ext_resource type="Texture2D" uid="uid://do7q0s1gry7wb" path="res://scenes/abilities/ability_images/super_axe.png" id="2_2ydsf"]
+[ext_resource type="PackedScene" uid="uid://begogmthhosrw" path="res://scenes/components/hitbox_component.tscn" id="3_mtng8"]
 
 [sub_resource type="Animation" id="Animation_hsos0"]
 length = 0.001
@@ -44,8 +44,8 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cm657"]
 
-[node name="AxeAbility" type="Node2D"]
-script = ExtResource("1_armtw")
+[node name="SuperAxeAbility" type="Node2D" groups=["super_axe_ability"]]
+script = ExtResource("1_mplac")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -54,9 +54,9 @@ libraries = {
 autoplay = "default"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_x73hf")
+texture = ExtResource("2_2ydsf")
 
-[node name="HitboxComponent" parent="." instance=ExtResource("3_1rdb0")]
+[node name="HitboxComponent" parent="." instance=ExtResource("3_mtng8")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_cm657")

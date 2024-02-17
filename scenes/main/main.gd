@@ -4,6 +4,8 @@ class_name GameLevel
 @onready var arena_time_manager: ArenaTimeManager = $ArenaTimeManager
 @onready var player: Player = %Player
 @onready var vignette: Vignette = $Vignette
+@onready var upgrade_manager: UpgradeManager = $UpgradeManager
+@onready var upgrades_ui: UpgradesUI = $UpgradesUI
 
 
 var end_screen_scene = preload("res://scenes/ui/end_screen.tscn")
@@ -14,7 +16,13 @@ func _ready():
 	vignette.animation_player.play("RESET")
 	player.player_died.connect(on_player_died)
 	arena_time_manager.arena_timeout.connect(on_arena_timeout)
+	upgrade_manager.remove_ability.connect(on_remove_ability)
 	set_hero(GameEvents.selected_hero)
+
+
+func on_remove_ability(ability: AbilityUpgrade):
+	player.remove_ability(ability)
+	upgrades_ui.remove_upgrade(ability)
 
 
 func _unhandled_input(event):

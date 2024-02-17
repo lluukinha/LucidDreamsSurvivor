@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://q1gdoevs073q"]
+
+[ext_resource type="Script" path="res://scenes/abilities/super_axe_ability_controller/super_axe_ability_controller.gd" id="1_r6kli"]
+
+[node name="SuperAxeAbilityController" type="Node"]
+script = ExtResource("1_r6kli")

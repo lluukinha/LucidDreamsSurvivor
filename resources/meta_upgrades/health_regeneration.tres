@@ -6,6 +6,6 @@
 script = ExtResource("1_jnyl2")
 id = "health_regeneration"
 max_quantity = 10
-cost = 50
+cost = 200
 title = "meta_upgrades_health_regeneration_title"
 description = "meta_upgrades_health_regeneration_description"

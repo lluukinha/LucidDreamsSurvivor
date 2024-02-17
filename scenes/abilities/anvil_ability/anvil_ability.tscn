@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://b1hdgkoj7u3gf"]
 
 [ext_resource type="Script" path="res://scenes/abilities/anvil_ability/anvil_ability.gd" id="1_f5ecr"]
-[ext_resource type="Texture2D" uid="uid://cttq8n03rjk6j" path="res://scenes/abilities/anvil_ability/anvil.png" id="1_qfl8m"]
 [ext_resource type="Texture2D" uid="uid://wo0cuefqm74d" path="res://assets/particle.png" id="2_5qjk5"]
 [ext_resource type="PackedScene" uid="uid://begogmthhosrw" path="res://scenes/components/hitbox_component.tscn" id="3_2dp05"]
+[ext_resource type="Texture2D" uid="uid://cttq8n03rjk6j" path="res://scenes/abilities/ability_images/anvil.png" id="3_k2o53"]
 
 [sub_resource type="Animation" id="Animation_0p1b6"]
 length = 0.001
@@ -172,7 +172,7 @@ texture = ExtResource("2_5qjk5")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
-texture = ExtResource("1_qfl8m")
+texture = ExtResource("3_k2o53")
 offset = Vector2(0, -7)
 
 [node name="HitboxComponent" parent="." instance=ExtResource("3_2dp05")]

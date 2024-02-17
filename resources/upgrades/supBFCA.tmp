@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://clfv5xgeldafw"]
+
+[ext_resource type="PackedScene" uid="uid://q1gdoevs073q" path="res://scenes/abilities/super_axe_ability_controller/super_axe_ability_controller.tscn" id="1_jjfxd"]
+[ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="2_eu2hl"]
+[ext_resource type="Texture2D" uid="uid://do7q0s1gry7wb" path="res://scenes/abilities/ability_images/super_axe.png" id="3_xw33e"]
+
+[resource]
+script = ExtResource("2_eu2hl")
+ability_controller_scene = ExtResource("1_jjfxd")
+id = "super_axe"
+name = "ability_super_axe_name"
+description = "ability_super_axe_description"
+max_quantity = 1
+texture = ExtResource("3_xw33e")
+trackable = true

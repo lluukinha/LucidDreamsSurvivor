@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://btmn5elxd4i53"]
+
+[ext_resource type="Texture2D" uid="uid://dv5wfprnrqn7t" path="res://scenes/abilities/ability_images/axe_damage.png" id="1_4uw6c"]
+[ext_resource type="Script" path="res://scenes/ui/upgrade_ui.gd" id="1_w620d"]
+
+[node name="UpgradeUI" type="HBoxContainer" groups=["upgrade_ui"]]
+theme_override_constants/separation = -2
+script = ExtResource("1_w620d")
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_4uw6c")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+theme_override_constants/shadow_offset_y = 2
+text = "1x"
+vertical_alignment = 2

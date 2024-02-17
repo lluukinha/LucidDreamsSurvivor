@@ -106,6 +106,16 @@ func on_hability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades
 		abilities.add_child(scene.instantiate())
 	elif ability_upgrade.id == "player_speed":
 		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"] * .1)
+	elif ability_upgrade.id == "health_recovery":
+		var health_to_recovery = health_component.max_health - health_component.current_health		
+		health_component.increase_health(health_to_recovery)
+
+
+func remove_ability(ability_upgrade: AbilityUpgrade):
+	var ability = get_tree().get_first_node_in_group(str(ability_upgrade.id) + "_controller")
+	if ability == null:
+		return
+	ability.queue_free()
 
 
 func on_health_regeneration_timer_timeout():

@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://ofi7v80edk05"]
+[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://ofi7v80edk05"]
 
 [ext_resource type="PackedScene" uid="uid://f0x6j2dgtsdy" path="res://scenes/abilities/anvil_ability_controller/anvil_ability_controller.tscn" id="1_yea7s"]
 [ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="2_rhdql"]
+[ext_resource type="Texture2D" uid="uid://cttq8n03rjk6j" path="res://scenes/abilities/ability_images/anvil.png" id="3_gfbmu"]
 
 [resource]
 script = ExtResource("2_rhdql")
 ability_controller_scene = ExtResource("1_yea7s")
-id = "anvil"
+id = "anvil_ability"
 name = "ability_anvil_name"
 description = "ability_anvil_description"
 max_quantity = 1
+texture = ExtResource("3_gfbmu")
+trackable = true
