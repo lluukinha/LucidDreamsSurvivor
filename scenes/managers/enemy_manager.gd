@@ -17,9 +17,19 @@ var base_spawn_time = 0
 var enemies_table = WeightedTable.new()
 var can_spawn = true
 var number_to_spawn = 1
+var max_to_spawn = 10
+var arena_difficulty_level: int = 0
 
 
 func _ready():
+	if GameEvents.selected_hero.id == "brocoleo":
+		number_to_spawn = 3
+		max_to_spawn = 11
+	elif GameEvents.selected_hero.id == "brocoleo":
+		number_to_spawn = 5
+		max_to_spawn = 12
+	
+	
 	enemies_table.add_item(basic_enemy_scene, 10)
 	enemies_table.add_item(crab_enemy_scene, 9)
 	base_spawn_time = timer.wait_time
@@ -52,24 +62,26 @@ func get_spawn_position():
 
 
 func on_timer_timeout():
+	timer.start()
+	
 	if !can_spawn:
 		return
 	
-	timer.start()
-	
 	var enemies_on_scene = get_tree().get_nodes_in_group("enemy").size()
-	if enemies_on_scene > 90:
+	if enemies_on_scene > 100:
 		return
 	
 	for i in number_to_spawn:
 		var enemy_scene = enemies_table.pick_item() as PackedScene
 		var enemy = enemy_scene.instantiate() as Node2D
+		enemy.arena_difficulty_level = arena_difficulty_level
 		var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 		entities_layer.add_child(enemy)
 		enemy.global_position = get_spawn_position()
 
 
 func on_arena_difficulty_increased(arena_difficulty: int):
+	arena_difficulty_level = arena_difficulty
 	var time_off = (0.1 / 12) * arena_difficulty
 	time_off = min(time_off, 0.7)
 	timer.wait_time = base_spawn_time - time_off
@@ -83,5 +95,5 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	elif arena_difficulty == 100:
 		enemies_table.add_item(lizard_enemy_scene, 7)
 	
-	if number_to_spawn < 7 && arena_difficulty > 18 && (arena_difficulty % 6) == 0:
+	if number_to_spawn < max_to_spawn && (arena_difficulty % 6) == 0:
 		number_to_spawn +=1

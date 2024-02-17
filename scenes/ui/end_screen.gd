@@ -1,6 +1,10 @@
 extends CanvasLayer
 class_name EndScreen
 
+signal revive
+
+@export var can_revive: bool = false
+
 @onready var panel_container = %PanelContainer
 
 func _ready():
@@ -10,6 +14,11 @@ func _ready():
 	tween.tween_property(panel_container, "scale", Vector2.ONE, .3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	
 	get_tree().paused = true
+	
+	if can_revive:
+		%ReviveButton.visible = true
+		%ReviveButton.pressed.connect(on_revive_button_pressed)
+	
 	%RestartButton.pressed.connect(on_restart_button_pressed)
 	%QuitButton.pressed.connect(on_quit_button_pressed)
 
@@ -28,9 +37,16 @@ func play_jingle(defeat: bool):
 
 
 func on_restart_button_pressed():
+	MetaProgression.save()
 	ScreenTransition.transition_to_scene("res://scenes/ui/player_selection.tscn")
 
 
 func on_quit_button_pressed():
+	MetaProgression.save()
 	ScreenTransition.transition_to_scene("res://scenes/ui/main_menu.tscn")
-	
+
+
+func on_revive_button_pressed():
+	revive.emit()
+	get_tree().paused = false
+	queue_free()

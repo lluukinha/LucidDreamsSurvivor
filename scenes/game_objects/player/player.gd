@@ -7,7 +7,7 @@ signal collect_vials
 @onready var damage_interval_timer = $DamageIntervalTimer
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var health_bar: ProgressBar = $HealthBar
-@onready var abilities = $Abilities
+@onready var abilities: Node = $Abilities
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visuals = $Visuals
 @onready var velocity_component: VelocityComponent = $VelocityComponent
@@ -17,8 +17,11 @@ const BASE_HEALTH = 10
 
 var number_colliding_bodies = 0
 var base_speed = 0
-var can_move = true
+var can_attack: bool = true
 var is_dead = false
+var abilities_temp = null
+var health_bar_temp = null
+var health_component_temp = null
 
 func _ready():
 	var max_health_quantity = MetaProgression.get_upgrade_count("maximum_health")
@@ -44,12 +47,11 @@ func _process(_delta):
 		return
 	
 	var movement_vector = get_movement_vector()
-	if can_move:
-		var direction = movement_vector.normalized()
-		velocity_component.accelerate_in_direction(direction)
-		velocity_component.move(self)
+	var direction = movement_vector.normalized()
+	velocity_component.accelerate_in_direction(direction)
+	velocity_component.move(self)
 	
-	if can_move && (movement_vector.x != 0 || movement_vector.y != 0):
+	if movement_vector.x != 0 || movement_vector.y != 0:
 		animation_player.play("walk")
 	else:
 		animation_player.play("RESET")
@@ -129,14 +131,24 @@ func on_health_regeneration_timer_timeout():
 	health_regeneration_timer.start()
 
 
+func revive():
+	is_dead = false
+	health_bar.visible = true
+	health_component.is_dead = false
+	health_component.increase_health(health_component.max_health)
+	animation_player.play("RESET")
+
+
 func on_player_died():
 	is_dead = true
-	health_component.queue_free()
-	abilities.queue_free()
-	health_bar.queue_free()
+	
+	#health_component.queue_free()
+	#abilities.queue_free()
+	#health_bar.queue_free()
+	health_bar.visible = false
 	animation_player.play("RESET")
 	await animation_player.animation_finished
 	animation_player.play("death")
 	player_died.emit()
 	await animation_player.animation_finished
-	queue_free()
+	#queue_free()

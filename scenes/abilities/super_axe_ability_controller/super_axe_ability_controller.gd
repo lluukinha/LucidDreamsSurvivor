@@ -14,10 +14,10 @@ func _ready():
 
 
 func set_ability():
-	var player = get_tree().get_first_node_in_group("player") as Node2D
+	var player = get_tree().get_first_node_in_group("player") as Player
 	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 
-	if player == null || foreground_layer == null:
+	if player == null || foreground_layer == null || !player.can_attack:
 		return
 	
 	var super_axe_instance = super_axe_ability_scene.instantiate() as SuperAxeAbility

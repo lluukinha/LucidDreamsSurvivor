@@ -4,8 +4,10 @@ extends CharacterBody2D
 @onready var velocity_component: VelocityComponent = $VelocityComponent
 @onready var health_component: HealthComponent = $HealthComponent
 
+@export var arena_difficulty_level: int = 0
 
 func _ready():
+	health_component.update_max_health(health_component.max_health + arena_difficulty_level)
 	$HurtboxComponent.hit.connect(on_hit)
 	health_component.died.connect(queue_free)
 

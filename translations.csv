@@ -16,6 +16,8 @@ meta_upgrades_maximum_health_title,Increase health,Aumentar vida
 meta_upgrades_maximum_health_description,Increases player maximum health,Aumenta vida maxima do jogador
 meta_upgrades_health_regeneration_title,Health regen,Recuperar vida
 meta_upgrades_health_regeneration_description,Recover lost health from time to time,Recupera parte da vida perdida de tempos em tempos
+meta_upgrades_revive_title,Revive,Revive
+meta_upgrades_revive_description,Adds 1 revive,Adiciona 1 revive
 meta_upgrades_purchase_button,Purchase,Comprar
 meta_upgrades_maxed_quantity_label,Max,Max
 ability_health_recovery_name,Potion,Pocao

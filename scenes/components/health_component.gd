@@ -8,6 +8,7 @@ signal deal_damage
 @export var max_health: float = 10
 
 var current_health
+var is_dead = false
 
 
 func _ready():
@@ -20,6 +21,8 @@ func update_max_health(new_max_health: float):
 
 
 func damage(damage_amount: float):
+	if is_dead:
+		return
 	current_health = max(current_health - damage_amount, 0)
 	deal_damage.emit()
 	health_changed.emit()
@@ -27,7 +30,7 @@ func damage(damage_amount: float):
 
 
 func increase_health(amount_to_increase: float):
-	if current_health == max_health || current_health <= 0:
+	if current_health == max_health || is_dead:
 		return
 	current_health = min(current_health + amount_to_increase, max_health)
 	health_changed.emit()
@@ -45,4 +48,5 @@ func check_death():
 	
 
 func die():
+	is_dead = true
 	died.emit()
