@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://be1dksfv7is8m"]
+[gd_scene load_steps=8 format=3 uid="uid://be1dksfv7is8m"]
 
 [ext_resource type="PackedScene" uid="uid://duhklbipus26c" path="res://scenes/ui/ability_upgrade_card.tscn" id="1_ha7s1"]
 [ext_resource type="Script" path="res://scenes/ui/upgrade_screen.gd" id="1_idvbv"]
+[ext_resource type="PackedScene" uid="uid://cv5mvullt6fg2" path="res://scenes/ui/sound_button.tscn" id="3_26am0"]
 
 [sub_resource type="Animation" id="Animation_kedw5"]
 length = 0.001
@@ -92,3 +93,22 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 16
+
+[node name="RefreshContainer" type="MarginContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="RefreshButton" parent="RefreshContainer" instance=ExtResource("3_26am0")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "reroll"

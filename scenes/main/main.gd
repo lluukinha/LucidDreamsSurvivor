@@ -13,7 +13,6 @@ var end_screen_scene = preload("res://scenes/ui/end_screen.tscn")
 var pause_menu_scene = preload("res://scenes/ui/pause_menu.tscn")
 var revives: int = 0
 
-
 func _ready():
 	vignette.animation_player.play("RESET")
 	player.player_died.connect(on_player_died)

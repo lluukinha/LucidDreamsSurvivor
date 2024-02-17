@@ -18,6 +18,10 @@ meta_upgrades_health_regeneration_title,Health regen,Recuperar vida
 meta_upgrades_health_regeneration_description,Recover lost health from time to time,Recupera parte da vida perdida de tempos em tempos
 meta_upgrades_revive_title,Revive,Revive
 meta_upgrades_revive_description,Adds 1 revive,Adiciona 1 revive
+meta_upgrades_shuffle_upgrades_title,Shuffle upgrades,Embaralhar upgrades
+meta_upgrades_shuffle_upgrades_description,Allows you to shuffle upgrades 1 more time,Te permite embaralhar upgrades mais uma vez
+meta_upgrades_upgrades_quantity_title,MAX Upgrades,MAX Power UP
+meta_upgrades_upgrades_quantity_description,Allows 3 upgrades on power up,Permite escolher entre 3 power ups
 meta_upgrades_purchase_button,Purchase,Comprar
 meta_upgrades_maxed_quantity_label,Max,Max
 ability_health_recovery_name,Potion,Pocao
@@ -54,3 +58,4 @@ end_screen_restart_button,Restart,Reiniciar
 end_screen_quit_button,Quit,Sair
 level,Level,Nivel
 select_a_hero,Select a hero,Selecione um heroi
+reroll,Reroll,Rodar novamente

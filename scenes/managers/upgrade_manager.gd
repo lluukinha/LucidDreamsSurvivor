@@ -9,6 +9,8 @@ signal remove_ability
 var current_upgrades = {}
 var upgrade_pool: WeightedTable = WeightedTable.new()
 var can_level_up = true
+var upgrades_count = 2
+var rerolls: int = 0
 
 var upgrade_get_vials = preload("res://resources/upgrades/get_vials.tres")
 var upgrade_health_recovery = preload("res://resources/upgrades/health_recovery.tres")
@@ -32,6 +34,10 @@ func _ready():
 	upgrade_pool.add_item(upgrade_health_recovery, 10)
 	upgrade_pool.add_item(upgrade_get_vials, 10)
 	experience_manager.level_up.connect(on_level_up)
+	if MetaProgression.save_data["meta_upgrades"].has("upgrades_quantity"):
+		upgrades_count = 3
+	if MetaProgression.save_data["meta_upgrades"].has("shuffle_upgrades"):
+		rerolls = MetaProgression.save_data["meta_upgrades"]["shuffle_upgrades"]["quantity"]
 
 
 func apply_upgrade(upgrade: AbilityUpgrade):	
@@ -82,7 +88,7 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 
 func pick_upgrades():
 	var chosen_upgrades: Array[AbilityUpgrade] = []
-	for i in 3:
+	for i in upgrades_count:
 		if upgrade_pool.items.size() == chosen_upgrades.size():
 			break
 		var chosen_upgrade = upgrade_pool.pick_item(chosen_upgrades)
@@ -95,11 +101,22 @@ func on_upgrade_selected(upgrade: AbilityUpgrade):
 	apply_upgrade(upgrade)
 
 
-func on_level_up(_new_level: int):
-	if !can_level_up:
-		return
-	var upgrade_screen_instance = upgrade_screen_scene.instantiate()
+func refresh_upgrades():
+	var upgrade_screen_instance = upgrade_screen_scene.instantiate() as UpgradeScreenUI
+	upgrade_screen_instance.can_refresh = rerolls > 0
 	add_child(upgrade_screen_instance)
 	var chosen_upgrades = pick_upgrades()
 	upgrade_screen_instance.set_ability_upgrades(chosen_upgrades)
 	upgrade_screen_instance.upgrade_selected.connect(on_upgrade_selected)
+	upgrade_screen_instance.refresh.connect(on_refresh)
+
+
+func on_refresh():
+	rerolls -= 1
+	refresh_upgrades()
+
+
+func on_level_up(_new_level: int):
+	if !can_level_up:
+		return
+	refresh_upgrades()
