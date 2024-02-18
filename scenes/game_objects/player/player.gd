@@ -46,7 +46,7 @@ func _process(_delta):
 	if is_dead:
 		return
 	
-	var movement_vector = get_movement_vector()
+	var movement_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction = movement_vector.normalized()
 	velocity_component.accelerate_in_direction(direction)
 	velocity_component.move(self)
@@ -59,12 +59,6 @@ func _process(_delta):
 	var move_sign = sign(movement_vector.x)
 	if move_sign != 0:
 		visuals.scale = Vector2(move_sign, 1)
-
-
-func get_movement_vector():	
-	var x_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	var y_movement = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	return Vector2(x_movement, y_movement)
 
 
 func check_deal_damage():
