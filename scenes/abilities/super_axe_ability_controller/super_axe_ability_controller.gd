@@ -3,10 +3,11 @@ extends Node
 var super_axe_ability_scene: PackedScene = preload("res://scenes/abilities/super_axe_ability/super_axe_ability.tscn")
 
 const BASE_RANGE = 100
+const BASE_SPEED = 3.5
 var base_damage = 20
 var additional_damage_percent = 1
 var anvil_count = 0
-
+var super_axe_speed = BASE_SPEED
 
 func _ready():
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
@@ -21,6 +22,7 @@ func set_ability():
 		return
 	
 	var super_axe_instance = super_axe_ability_scene.instantiate() as SuperAxeAbility
+	super_axe_instance.speed = super_axe_speed
 	foreground_layer.add_child(super_axe_instance)
 	super_axe_instance.global_position = player.global_position
 	super_axe_instance.hitbox_component.damage = base_damage * additional_damage_percent
@@ -41,3 +43,6 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		additional_damage_percent = 1 + (current_upgrades["super_axe_damage"]["quantity"] * .1)
 	if upgrade.id == "super_axe_amount":
 		set_ability()
+	if upgrade.id == "super_axe_speed":
+		super_axe_speed = BASE_SPEED - (current_upgrades["super_axe_speed"]["quantity"] * .5)
+		get_tree().call_group("super_axe_ability", "set_speed", super_axe_speed)

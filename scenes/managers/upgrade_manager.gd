@@ -1,6 +1,7 @@
 extends Node
 class_name UpgradeManager
 
+signal use_repelent
 signal remove_ability
 
 @export var experience_manager: ExperienceManager
@@ -25,6 +26,8 @@ var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
 var upgrade_anvil_amount = preload("res://resources/upgrades/anvil_amount.tres")
 var upgrade_super_axe = preload("res://resources/upgrades/super_axe.tres")
 var upgrade_super_axe_amount = preload("res://resources/upgrades/super_axe_amount.tres")
+var upgrade_super_axe_speed = preload("res://resources/upgrades/super_axe_speed.tres")
+var upgrade_repelent = preload("res://resources/upgrades/repelent.tres")
 
 func _ready():
 	upgrade_pool.add_item(upgrade_sword, 10)
@@ -33,6 +36,7 @@ func _ready():
 	upgrade_pool.add_item(upgrade_player_speed, 10)
 	upgrade_pool.add_item(upgrade_health_recovery, 10)
 	upgrade_pool.add_item(upgrade_get_vials, 10)
+	upgrade_pool.add_item(upgrade_repelent, 1)
 	experience_manager.level_up.connect(on_level_up)
 	if MetaProgression.save_data["meta_upgrades"].has("upgrades_quantity"):
 		upgrades_count = 3
@@ -57,6 +61,8 @@ func apply_upgrade(upgrade: AbilityUpgrade):
 	
 	update_upgrade_pool(upgrade)
 	GameEvents.emit_ability_upgrade_added(upgrade, current_upgrades)
+	if upgrade.id == upgrade_repelent.id:
+		use_repelent.emit()
 	
 	if !upgrade.trackable:
 		return
@@ -78,9 +84,10 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 	elif chosen_upgrade.id == upgrade_anvil.id:
 		upgrade_pool.add_item(upgrade_anvil_amount, 10)
 	elif chosen_upgrade.id == upgrade_axe_damage.id && current_upgrades[upgrade_axe_damage.id]["quantity"] == upgrade_axe_damage.max_quantity:
-		upgrade_pool.add_item(upgrade_super_axe, 9999)
+		upgrade_pool.add_item(upgrade_super_axe, 10000)
 	elif chosen_upgrade.id == upgrade_super_axe.id:
 		upgrade_pool.add_item(upgrade_super_axe_amount, 10)
+		upgrade_pool.add_item(upgrade_super_axe_speed, 8)
 		upgrade_pool.remove_item(upgrade_axe)
 		upgrade_pool.remove_item(upgrade_axe_damage)
 		remove_ability.emit(upgrade_axe)

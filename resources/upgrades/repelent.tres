@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://dj34fyqtk0fjr"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_l5w0a"]
+[ext_resource type="Texture2D" uid="uid://c4irwiuketaxx" path="res://scenes/abilities/ability_images/repelent.png" id="2_hgdia"]
+
+[resource]
+script = ExtResource("1_l5w0a")
+id = "repelent"
+name = "ability_repelent_name"
+description = "ability_repelent_description"
+max_quantity = 0
+texture = ExtResource("2_hgdia")
+trackable = false

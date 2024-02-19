@@ -10,6 +10,7 @@ var axe = preload("res://resources/upgrades/axe.tres")
 var sword = preload("res://resources/upgrades/sword.tres")
 var anvil = preload("res://resources/upgrades/anvil.tres")
 
+var super_axe_speed = preload("res://resources/upgrades/super_axe_speed.tres")
 var super_axe_amount = preload("res://resources/upgrades/super_axe_amount.tres")
 var sword_amount = preload("res://resources/upgrades/sword_damage.tres")
 var axe_amount = preload("res://resources/upgrades/axe_damage.tres")
@@ -30,7 +31,7 @@ func get_upgrades():
 func get_upgrade_id(upgrade: AbilityUpgrade):
 	if upgrade.id == sword_amount.id:
 		return sword.id
-	elif upgrade.id == super_axe_amount.id:
+	elif upgrade.id == super_axe_amount.id || upgrade.id == super_axe_speed.id:
 		return super_axe.id
 	elif upgrade.id == axe_amount.id:
 		return axe.id

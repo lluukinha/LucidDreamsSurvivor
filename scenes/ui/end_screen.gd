@@ -38,7 +38,7 @@ func play_jingle(defeat: bool):
 
 func on_restart_button_pressed():
 	MetaProgression.save()
-	ScreenTransition.transition_to_scene("res://scenes/ui/player_selection.tscn")
+	ScreenTransition.transition_to_scene("res://scenes/ui/meta_menu.tscn")
 
 
 func on_quit_button_pressed():

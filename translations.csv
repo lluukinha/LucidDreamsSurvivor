@@ -12,6 +12,8 @@ options_music_volume,Music volume,Volume da Musica
 options_window_mode,Fullscreen,Tela cheia
 options_language_en,English,Ingles
 options_language_pt,Brazilian Portuguese,Portugues Brasileiro
+meta_upgrades_experience_gain_title,Increase experience,Aumentar experiencia
+meta_upgrades_experience_gain_description,Increases experience drop chance,Aumenta chance de drop de experiencia
 meta_upgrades_maximum_health_title,Increase health,Aumentar vida
 meta_upgrades_maximum_health_description,Increases player maximum health,Aumenta vida maxima do jogador
 meta_upgrades_health_regeneration_title,Health regen,Recuperar vida
@@ -24,6 +26,8 @@ meta_upgrades_upgrades_quantity_title,MAX Upgrades,MAX Power UP
 meta_upgrades_upgrades_quantity_description,Allows 3 upgrades on power up,Permite escolher entre 3 power ups
 meta_upgrades_purchase_button,Purchase,Comprar
 meta_upgrades_maxed_quantity_label,Max,Max
+ability_repelent_name,Repelent,Repelente
+ability_repelent_description,Plague repelent,Repelente de pragas
 ability_health_recovery_name,Potion,Pocao
 ability_health_recovery_description,Recover lost health,Recupera vida perdida
 ability_sword_name,Sword,Espada
@@ -54,6 +58,7 @@ victory_title,Victory,Vitoria
 victory_description,You won!,Voce venceu
 defeat_title,Defeat,Derrota
 defeat_description,You lost!,Voce perdeu
+end_screen_revive_button,Revive,Reviver
 end_screen_restart_button,Restart,Reiniciar
 end_screen_quit_button,Quit,Sair
 level,Level,Nivel

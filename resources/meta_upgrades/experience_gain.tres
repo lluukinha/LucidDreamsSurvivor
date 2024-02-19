@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://brm5njm83k03s"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_cl7fx"]
+
+[resource]
+script = ExtResource("1_cl7fx")
+id = "experience_gain"
+max_quantity = 10
+cost = 100
+title = "meta_upgrades_experience_gain_title"
+description = "meta_upgrades_experience_gain_description"

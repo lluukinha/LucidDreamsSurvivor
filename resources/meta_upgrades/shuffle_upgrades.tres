@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_881v3")
 id = "shuffle_upgrades"
-max_quantity = 3
+max_quantity = 5
 cost = 200
 title = "meta_upgrades_shuffle_upgrades_title"
 description = "meta_upgrades_shuffle_upgrades_description"

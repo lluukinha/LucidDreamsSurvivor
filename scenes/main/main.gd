@@ -18,6 +18,7 @@ func _ready():
 	player.player_died.connect(on_player_died)
 	arena_time_manager.arena_timeout.connect(on_arena_timeout)
 	upgrade_manager.remove_ability.connect(on_remove_ability)
+	upgrade_manager.use_repelent.connect(kill_all_enemies)
 	player.collect_vials.connect(collect_all_vials)
 	set_hero(GameEvents.selected_hero)
 	
@@ -74,6 +75,10 @@ func set_hero(hero: HeroResource):
 	$UpgradeManager.apply_upgrade(hero.start_ability)
 
 
+func kill_all_enemies():
+	get_tree().call_group("enemy", "die")
+
+
 func on_player_died():
 	freeze_game()
 	vignette.on_game_over()
@@ -83,7 +88,7 @@ func on_player_died():
 
 func on_arena_timeout():
 	freeze_game()
-	get_tree().call_group("enemy", "die")
+	kill_all_enemies()
 	arena_time_manager.stop_timer()
 	$ArenaTimeUI.visible = false
 	collect_all_vials()
