@@ -49,6 +49,8 @@ ability_anvil_amount_description,Adds 1 additional anvil,Adiciona mais uma bigor
 ability_super_axe_name,Super axe,Machadao
 ability_super_axe_description,Now the axe spins on same radius,Agora o machado gira no mesmo eixo
 ability_super_axe_amount_name,Amount,Adicional
+ability_super_axe_speed_name,Speed,Velocidade
+ability_super_axe_speed_description,Increases super axe speed,Deixa o machadao mais rapido
 ability_super_axe_amount_description,Adds 1 additional super axe,Adiciona mais um machadao
 ability_player_speed_name,Speed,Velocidade
 ability_player_speed_description,Increases player movement speed,Aumenta velocidade de movimento
