@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2c456io3ocwn"]
+[gd_scene load_steps=11 format=3 uid="uid://b2c456io3ocwn"]
 
 [ext_resource type="Script" path="res://scenes/ui/hero_card.gd" id="1_cmtle"]
 [ext_resource type="Texture2D" uid="uid://ds65sm1n2i7w3" path="res://resources/heroes/morengo_big.png" id="1_f4m1j"]
+[ext_resource type="PackedScene" uid="uid://d01qsx7i43xtf" path="res://scenes/components/random_stream_player_component.tscn" id="2_nvd3h"]
+[ext_resource type="AudioStream" uid="uid://c01dvvhao8y4w" path="res://assets/audio/click4.ogg" id="6_xshwi"]
+[ext_resource type="AudioStream" uid="uid://bbrwd83qi4ef8" path="res://assets/audio/click5.ogg" id="7_gw1je"]
 
 [sub_resource type="Animation" id="Animation_bc274"]
 length = 0.001
@@ -117,6 +120,9 @@ _data = {
 
 [node name="HeroCard" type="PanelContainer"]
 script = ExtResource("1_cmtle")
+
+[node name="RandomStreamPlayerComponent" parent="." instance=ExtResource("2_nvd3h")]
+streams = Array[AudioStream]([ExtResource("6_xshwi"), ExtResource("7_gw1je")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

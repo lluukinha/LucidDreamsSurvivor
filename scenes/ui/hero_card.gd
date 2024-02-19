@@ -25,4 +25,5 @@ func on_gui_input(event: InputEvent):
 		return
 	
 	if event.is_action_pressed("confirm") && !disabled:
+		$RandomStreamPlayerComponent.play_random()
 		select.emit()
