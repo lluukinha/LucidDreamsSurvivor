@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://ch7pdq6yqvjj7" path="res://scenes/ui/experience_bar.tscn" id="2_lmwhn"]
 [ext_resource type="PackedScene" uid="uid://bdxigk48ligcp" path="res://scenes/ui/vignette.tscn" id="3_1j0yr"]
 [ext_resource type="PackedScene" uid="uid://bbihxhxetr654" path="res://scenes/components/music_player_component.tscn" id="3_pi6ec"]
+[ext_resource type="AudioStream" uid="uid://ce3652od78lcp" path="res://assets/music/main-music.mp3" id="3_qh045"]
 [ext_resource type="PackedScene" uid="uid://bjplux8p518my" path="res://scenes/managers/experience_manager.tscn" id="4_gpt8d"]
-[ext_resource type="AudioStream" uid="uid://dby1m6acb7e8j" path="res://assets/audio/Hear+What+They+Say.mp3" id="4_kqr11"]
 [ext_resource type="PackedScene" uid="uid://gwdhdhfu38r" path="res://scenes/managers/upgrade_manager.tscn" id="6_7gha4"]
 [ext_resource type="PackedScene" uid="uid://csq7qcro0s1td" path="res://scenes/ui/upgrades_ui.tscn" id="7_yrob6"]
 
@@ -19,7 +19,8 @@
 script = ExtResource("1_prcbe")
 
 [node name="MusicPlayer" parent="." instance=ExtResource("3_pi6ec")]
-music_stream = ExtResource("4_kqr11")
+volume_db = -20.0
+music_stream = ExtResource("3_qh045")
 
 [node name="Vignette" parent="." instance=ExtResource("3_1j0yr")]
 

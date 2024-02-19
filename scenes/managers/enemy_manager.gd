@@ -8,6 +8,8 @@ var wizard_enemy_scene = preload("res://scenes/game_objects/wizard_enemy/wizard_
 var bat_enemy_scene = preload("res://scenes/game_objects/bat_enemy/bat_enemy.tscn")
 var lizard_enemy_scene = preload("res://scenes/game_objects/lizard_enemy/lizard_enemy.tscn")
 var red_rat_enemy_scene = preload("res://scenes/game_objects/red_rat_enemy/red_rat_enemy.tscn")
+var spider_enemy_scene = preload("res://scenes/game_objects/spider_enemy/spider_enemy.tscn")
+var mummy_enemy_scene = preload("res://scenes/game_objects/mummy_enemy/mummy_enemy.tscn")
 
 @export var arena_time_manager: Node
 
@@ -32,6 +34,7 @@ func _ready():
 	
 	enemies_table.add_item(basic_enemy_scene, 10)
 	enemies_table.add_item(crab_enemy_scene, 9)
+
 	base_spawn_time = timer.wait_time
 	timer.timeout.connect(on_timer_timeout)
 	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
@@ -86,14 +89,18 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	time_off = min(time_off, 0.7)
 	timer.wait_time = base_spawn_time - time_off
 	
-	if arena_difficulty == 10:
+	if arena_difficulty == 15:
 		enemies_table.add_item(wizard_enemy_scene, 15)
-	elif arena_difficulty == 18:
-		enemies_table.add_item(bat_enemy_scene, 8)
-	elif arena_difficulty == 80:
-		enemies_table.add_item(red_rat_enemy_scene, 15)
-	elif arena_difficulty == 100:
-		enemies_table.add_item(lizard_enemy_scene, 7)
+	elif arena_difficulty == 30:
+		enemies_table.add_item(bat_enemy_scene, 10)
+	elif arena_difficulty == 45:
+		enemies_table.add_item(spider_enemy_scene, 20)
+	elif arena_difficulty == 60:
+		enemies_table.add_item(red_rat_enemy_scene, 25)
+	elif arena_difficulty == 75:
+		enemies_table.add_item(mummy_enemy_scene, 30)
+	elif arena_difficulty == 90:
+		enemies_table.add_item(lizard_enemy_scene, 35)
 	
 	if number_to_spawn < max_to_spawn && (arena_difficulty % 6) == 0:
 		number_to_spawn +=1

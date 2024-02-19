@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal back_pressed
+
 @export var upgrades: Array[MetaUpgrade] = []
 
 @onready var grid_container = %GridContainer
@@ -20,5 +22,6 @@ func _ready():
 
 
 func on_back_pressed():
-	ScreenTransition.transition_to_scene("res://scenes/ui/main_menu.tscn")
+	back_pressed.emit()
+	#ScreenTransition.transition_to_scene("res://scenes/ui/main_menu.tscn")
 

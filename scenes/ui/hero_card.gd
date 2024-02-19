@@ -5,20 +5,24 @@ signal select
 
 @export var hero: HeroResource
 
-@onready var texture_rect = $VBoxContainer/TextureRect
-@onready var button = $VBoxContainer/SoundButton
+@onready var texture_rect = $MarginContainer/TextureRect
+
+var disabled = false
 
 func _ready():
-	button.text = hero.name
+	gui_input.connect(on_gui_input)
 	texture_rect.texture = hero.image
-	button.pressed.connect(on_button_pressed)
 	
 	var discovered_heroes = MetaProgression.save_data["discovered_heroes"] as Array[String]
 	
 	if !discovered_heroes.has(hero.id):
 		set_modulate(Color.BLACK)
-		button.disabled = true
+		disabled = true
 
 
-func on_button_pressed():
-	select.emit()
+func on_gui_input(event: InputEvent):
+	if disabled:
+		return
+	
+	if event.is_action_pressed("confirm") && !disabled:
+		select.emit()

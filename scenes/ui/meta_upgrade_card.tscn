@@ -138,6 +138,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"BlueOutlineLabel"
 text = "description"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="AvailableQuantityVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]

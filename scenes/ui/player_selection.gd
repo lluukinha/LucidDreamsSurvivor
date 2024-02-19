@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal back_pressed
+
 @onready var heroes_container = $MarginContainer/VBoxContainer/HeroesContainer
 @onready var back_button = %BackButton
 
@@ -25,4 +27,4 @@ func on_hero_selected(hero: HeroResource):
 
 
 func on_back_pressed():
-	ScreenTransition.transition_to_scene("res://scenes/ui/main_menu.tscn")
+	back_pressed.emit()

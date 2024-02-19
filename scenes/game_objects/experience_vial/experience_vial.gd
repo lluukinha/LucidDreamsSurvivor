@@ -4,6 +4,7 @@ class_name ExperienceVial
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
 @onready var sprite = $Sprite2D
 
+var collected = false
 
 func _ready():
 	$Area2D.area_entered.connect(on_area_entered)
@@ -18,11 +19,14 @@ func tween_collect(percent: float, start_position: Vector2):
 	global_position = start_position.lerp(player.global_position, percent)
 	var target_rotation = direction_from_start.angle() + deg_to_rad(90)
 	rotation = lerp_angle(rotation, target_rotation, 1 - exp(-2 * get_process_delta_time()))
-	if player.global_position == global_position:
+	if global_position == player.global_position:
 		collect()
 
 
 func collect():
+	if collected:
+		return
+	collected = true
 	$RandomStreamPlayer2DComponent.play_random()
 	GameEvents.emit_experience_vial_collected(1)
 	queue_free()
@@ -39,6 +43,7 @@ func collect_vial(duration = .5):
 	tween.tween_method(tween_collect.bind(global_position), 0.0, 1.0, duration).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
 	tween.tween_property(sprite, "scale", Vector2.ZERO, .05).set_delay(duration + .5)
 	tween.chain()
+	tween.tween_callback(collect)
 
 
 func on_area_entered(_other_area: Area2D):

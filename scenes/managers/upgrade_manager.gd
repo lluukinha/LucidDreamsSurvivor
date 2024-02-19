@@ -13,6 +13,7 @@ var can_level_up = true
 var upgrades_count = 2
 var rerolls: int = 0
 
+var upgrade_refresh = preload("res://resources/upgrades/refresh_cards.tres")
 var upgrade_get_vials = preload("res://resources/upgrades/get_vials.tres")
 var upgrade_health_recovery = preload("res://resources/upgrades/health_recovery.tres")
 var upgrade_sword = preload("res://resources/upgrades/sword.tres")
@@ -101,26 +102,26 @@ func pick_upgrades():
 		var chosen_upgrade = upgrade_pool.pick_item(chosen_upgrades)
 		chosen_upgrades.append(chosen_upgrade)
 	
+	if rerolls > 0:
+		chosen_upgrades.append(upgrade_refresh)
+	
 	return chosen_upgrades
 
 
 func on_upgrade_selected(upgrade: AbilityUpgrade):
-	apply_upgrade(upgrade)
+	if upgrade.id == upgrade_refresh.id:
+		rerolls -= 1
+		refresh_upgrades()
+	else:
+		apply_upgrade(upgrade)
 
 
 func refresh_upgrades():
 	var upgrade_screen_instance = upgrade_screen_scene.instantiate() as UpgradeScreenUI
-	upgrade_screen_instance.can_refresh = rerolls > 0
 	add_child(upgrade_screen_instance)
 	var chosen_upgrades = pick_upgrades()
 	upgrade_screen_instance.set_ability_upgrades(chosen_upgrades)
 	upgrade_screen_instance.upgrade_selected.connect(on_upgrade_selected)
-	upgrade_screen_instance.refresh.connect(on_refresh)
-
-
-func on_refresh():
-	rerolls -= 1
-	refresh_upgrades()
 
 
 func on_level_up(_new_level: int):

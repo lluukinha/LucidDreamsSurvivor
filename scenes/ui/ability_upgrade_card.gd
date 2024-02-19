@@ -3,7 +3,6 @@ class_name AbilityUpgradeCard
 
 signal selected
 
-@onready var name_label: Label = %NameLabel
 @onready var description_label: Label = %DescriptionLabel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var ability_image: TextureRect = %AbilityImage
@@ -29,7 +28,6 @@ func play_discard():
 
 
 func set_ability_upgrade(upgrade: AbilityUpgrade):
-	name_label.text = tr(upgrade.name) 
 	description_label.text = tr(upgrade.description)
 	ability_image.texture = upgrade.texture
 

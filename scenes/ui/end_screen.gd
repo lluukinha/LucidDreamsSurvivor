@@ -19,7 +19,6 @@ func _ready():
 		%ReviveButton.visible = true
 		%ReviveButton.pressed.connect(on_revive_button_pressed)
 	
-	%RestartButton.pressed.connect(on_restart_button_pressed)
 	%QuitButton.pressed.connect(on_quit_button_pressed)
 
 
@@ -34,11 +33,6 @@ func play_jingle(defeat: bool):
 		$DefeatStreamPlayer.play()
 	else:
 		$VictoryStreamPlayer.play()
-
-
-func on_restart_button_pressed():
-	MetaProgression.save()
-	ScreenTransition.transition_to_scene("res://scenes/ui/meta_menu.tscn")
 
 
 func on_quit_button_pressed():

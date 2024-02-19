@@ -28,6 +28,8 @@ meta_upgrades_purchase_button,Purchase,Comprar
 meta_upgrades_maxed_quantity_label,Max,Max
 ability_repelent_name,Repelent,Repelente
 ability_repelent_description,Plague repelent,Repelente de pragas
+ability_refresh_cards_name,Refresh,Atualizar
+ability_refresh_cards_description,Refresh cards,Atualiza as cartas
 ability_health_recovery_name,Potion,Pocao
 ability_health_recovery_description,Recover lost health,Recupera vida perdida
 ability_sword_name,Sword,Espada
