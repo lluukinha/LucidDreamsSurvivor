@@ -95,6 +95,10 @@ collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_cs2eb")
 
+[node name="VelocityTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_eaoys")
@@ -105,7 +109,7 @@ autoplay = "walk"
 max_health = 30.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("3_debfc")]
-max_speed = 110
+max_speed = 120
 acceleration = 0.75
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_uovcy")]

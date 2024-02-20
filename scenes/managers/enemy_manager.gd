@@ -14,6 +14,8 @@ var mummy_enemy_scene = preload("res://scenes/game_objects/mummy_enemy/mummy_ene
 @export var arena_time_manager: Node
 
 @onready var timer: Timer = $Timer
+@onready var respawn_timer = $RespawnTimer
+
 
 var base_spawn_time = 0
 var enemies_table = WeightedTable.new()
@@ -31,26 +33,44 @@ func _ready():
 		number_to_spawn = 5
 		max_to_spawn = 12
 	
-	
 	enemies_table.add_item(basic_enemy_scene, 10)
 	enemies_table.add_item(crab_enemy_scene, 9)
 
 	base_spawn_time = timer.wait_time
 	timer.timeout.connect(on_timer_timeout)
+	respawn_timer.timeout.connect(on_respawn_timer_timeout)
 	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
 
 
-func get_spawn_position():
-	var player = get_tree().get_first_node_in_group("player") as Node2D
+func spawn_enemy(enemyScene: PackedScene):
+	var enemy = enemyScene.instantiate() as Node2D
+	enemy.arena_difficulty_level = arena_difficulty_level
+	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
+	enemy.global_position = get_spawn_position()
+	entities_layer.add_child(enemy)
+
+
+func get_player_direction():
+	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized().rotated(randf_range(-0.2, 0.2))
+	if direction == Vector2.ZERO:
+		direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
+	return direction
+
+
+func get_spawn_position(random_direction: bool = false):
+	var player = get_tree().get_first_node_in_group("player") as Player
 	if player == null:
 		return Vector2.ZERO
+		
+	var direction = get_player_direction()
+	if random_direction:
+		direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	
 	var mask_bit = 1 << 0
 	var spawn_position = Vector2.ZERO
-	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
-	for i in 4:
-		spawn_position = player.global_position + (random_direction * SPAWN_RADIUS)
-		var additional_check_offset = random_direction * 20
+	for i in 8:
+		spawn_position = player.global_position + (direction * SPAWN_RADIUS)
+		var additional_check_offset = direction * 20
 		var query_parameters = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position + additional_check_offset, mask_bit)
 		var result = get_tree().root.world_2d.direct_space_state.intersect_ray(query_parameters)
 		
@@ -59,7 +79,8 @@ func get_spawn_position():
 			break
 		# found a colision, rotate spawn in 90 degrees and try again
 		else:
-			random_direction = random_direction.rotated(deg_to_rad(90))
+			direction = direction.rotated(deg_to_rad(45))
+			spawn_position = player.global_position + (direction * SPAWN_RADIUS)
 	
 	return spawn_position
 
@@ -70,17 +91,31 @@ func on_timer_timeout():
 	if !can_spawn:
 		return
 	
-	var enemies_on_scene = get_tree().get_nodes_in_group("enemy").size()
-	if enemies_on_scene > 100:
+	var enemies_on_scene = get_tree().get_nodes_in_group("enemy") as Array[Node2D]
+	if enemies_on_scene.size() > 120:
 		return
 	
 	for i in number_to_spawn:
-		var enemy_scene = enemies_table.pick_item() as PackedScene
-		var enemy = enemy_scene.instantiate() as Node2D
-		enemy.arena_difficulty_level = arena_difficulty_level
-		var entities_layer = get_tree().get_first_node_in_group("entities_layer")
-		entities_layer.add_child(enemy)
-		enemy.global_position = get_spawn_position()
+		spawn_enemy(enemies_table.pick_item())
+
+
+func on_respawn_timer_timeout():
+	respawn_timer.start()
+	
+	var player = get_tree().get_first_node_in_group("player") as Player
+	var enemies_on_scene = get_tree().get_nodes_in_group("enemy") as Array[Node2D]
+	
+	if player == null || enemies_on_scene.size() == 0:
+		return
+	
+	var enemies_far_away = enemies_on_scene.filter(
+		func(enemy: Node2D):
+			var distance = enemy.global_position.distance_to(player.global_position)
+			return enemy.global_position.distance_to(player.global_position) > 400
+	) as Array[Node2D]
+	
+	for enemy in enemies_far_away:
+		enemy.set_global_position(get_spawn_position(true))
 
 
 func on_arena_difficulty_increased(arena_difficulty: int):

@@ -95,6 +95,10 @@ collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_rr7k2")
 
+[node name="VelocityTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_vntyu")

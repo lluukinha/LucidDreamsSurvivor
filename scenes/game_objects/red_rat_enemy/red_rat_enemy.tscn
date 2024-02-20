@@ -95,6 +95,10 @@ collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_rv4vi")
 
+[node name="VelocityTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_vntyu")
@@ -109,7 +113,7 @@ drop_percent = 0.7
 health_component = NodePath("../HealthComponent")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("4_oq1fn")]
-max_speed = 70
+max_speed = 80
 acceleration = 10.0
 
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_h7xm3")]

@@ -1,10 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2c456io3ocwn"]
+[gd_scene load_steps=24 format=3 uid="uid://b2c456io3ocwn"]
 
 [ext_resource type="Script" path="res://scenes/ui/hero_card.gd" id="1_cmtle"]
 [ext_resource type="Texture2D" uid="uid://ds65sm1n2i7w3" path="res://resources/heroes/morengo_big.png" id="1_f4m1j"]
 [ext_resource type="PackedScene" uid="uid://d01qsx7i43xtf" path="res://scenes/components/random_stream_player_component.tscn" id="2_nvd3h"]
+[ext_resource type="AudioStream" uid="uid://je1drwn1sbj0" path="res://assets/audio/switch1.ogg" id="5_16s8e"]
+[ext_resource type="AudioStream" uid="uid://gf8iu2rsamgd" path="res://assets/audio/switch2.ogg" id="6_a4qh1"]
 [ext_resource type="AudioStream" uid="uid://c01dvvhao8y4w" path="res://assets/audio/click4.ogg" id="6_xshwi"]
+[ext_resource type="AudioStream" uid="uid://c527vmq1t03g1" path="res://assets/audio/switch3.ogg" id="7_81sgy"]
 [ext_resource type="AudioStream" uid="uid://bbrwd83qi4ef8" path="res://assets/audio/click5.ogg" id="7_gw1je"]
+[ext_resource type="AudioStream" uid="uid://bujt4j25ie76t" path="res://assets/audio/switch4.ogg" id="8_lytv0"]
+[ext_resource type="AudioStream" uid="uid://c5eh0mweeexpo" path="res://assets/audio/switch5.ogg" id="9_op4oc"]
+[ext_resource type="AudioStream" uid="uid://bnt24di5h7p3p" path="res://assets/audio/switch6.ogg" id="10_5xy7r"]
+[ext_resource type="AudioStream" uid="uid://cgb40d8bjn6ym" path="res://assets/audio/switch7.ogg" id="11_vw31h"]
+[ext_resource type="AudioStream" uid="uid://wxhw2d8a57vq" path="res://assets/audio/switch8.ogg" id="12_eb4q7"]
+[ext_resource type="AudioStream" uid="uid://bascgfej2q8rg" path="res://assets/audio/switch9.ogg" id="13_7sjuq"]
+[ext_resource type="AudioStream" uid="uid://drybao4e5oqdd" path="res://assets/audio/switch10.ogg" id="14_qecwe"]
 
 [sub_resource type="Animation" id="Animation_bc274"]
 length = 0.001
@@ -118,15 +128,76 @@ _data = {
 "selected": SubResource("Animation_bap54")
 }
 
+[sub_resource type="Animation" id="Animation_vxgwe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_type_variation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&""]
+}
+
+[sub_resource type="Animation" id="Animation_e41jw"]
+resource_name = "hover"
+length = 0.1
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoverPlayerComponent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_random"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_type_variation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HoverPanelContainer"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wurik"]
+_data = {
+"RESET": SubResource("Animation_vxgwe"),
+"hover": SubResource("Animation_e41jw")
+}
+
 [node name="HeroCard" type="PanelContainer"]
 script = ExtResource("1_cmtle")
 
 [node name="RandomStreamPlayerComponent" parent="." instance=ExtResource("2_nvd3h")]
 streams = Array[AudioStream]([ExtResource("6_xshwi"), ExtResource("7_gw1je")])
 
+[node name="HoverPlayerComponent" parent="." instance=ExtResource("2_nvd3h")]
+volume_db = -8.0
+streams = Array[AudioStream]([ExtResource("5_16s8e"), ExtResource("6_a4qh1"), ExtResource("7_81sgy"), ExtResource("8_lytv0"), ExtResource("9_op4oc"), ExtResource("10_5xy7r"), ExtResource("11_vw31h"), ExtResource("12_eb4q7"), ExtResource("13_7sjuq"), ExtResource("14_qecwe")])
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ajj1y")
+}
+
+[node name="HoverAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wurik")
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
