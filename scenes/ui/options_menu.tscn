@@ -110,9 +110,7 @@ step = 0.01
 
 [node name="BackButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_kxer8")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 text = "back_button"
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowButton" to="." method="_on_window_button_pressed"]

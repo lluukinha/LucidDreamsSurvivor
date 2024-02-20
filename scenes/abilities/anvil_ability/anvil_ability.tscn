@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1hdgkoj7u3gf"]
+[gd_scene load_steps=10 format=3 uid="uid://b1hdgkoj7u3gf"]
 
 [ext_resource type="Script" path="res://scenes/abilities/anvil_ability/anvil_ability.gd" id="1_f5ecr"]
 [ext_resource type="Texture2D" uid="uid://wo0cuefqm74d" path="res://assets/particle.png" id="2_5qjk5"]
+[ext_resource type="AudioStream" uid="uid://bhaek2dxrwhdl" path="res://assets/audio/anvil_drop.wav" id="2_o2k5i"]
 [ext_resource type="PackedScene" uid="uid://begogmthhosrw" path="res://scenes/components/hitbox_component.tscn" id="3_2dp05"]
 [ext_resource type="Texture2D" uid="uid://cttq8n03rjk6j" path="res://scenes/abilities/ability_images/anvil.png" id="3_k2o53"]
 
@@ -102,10 +103,10 @@ tracks/2/path = NodePath("Visuals/Sprite2D:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.100963, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.100963, 0.25, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+"values": [Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -145,6 +146,20 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0.603922), Color(1, 1, 1, 0)]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.199842),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uhnxl"]
 _data = {
@@ -158,6 +173,11 @@ radius = 32.0
 [node name="AnvilAbility" type="Node2D"]
 script = ExtResource("1_f5ecr")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_o2k5i")
+volume_db = -5.0
+bus = &"sfx"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_uhnxl")
@@ -170,6 +190,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_5qjk5")
 
 [node name="Visuals" type="Node2D" parent="."]
+position = Vector2(0, -0.16803)
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("3_k2o53")

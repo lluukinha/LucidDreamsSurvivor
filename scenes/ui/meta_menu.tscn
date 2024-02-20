@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://0cf4wegt7ryu"]
+[gd_scene load_steps=10 format=3 uid="uid://0cf4wegt7ryu"]
 
 [ext_resource type="Script" path="res://scenes/ui/meta_menu.gd" id="1_vajd7"]
 [ext_resource type="Resource" uid="uid://dw81w8tmco1fy" path="res://resources/meta_upgrades/experience_gain.tres" id="2_6h1rp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://bctq0lxtibfir" path="res://resources/meta_upgrades/revive.tres" id="4_i2w15"]
 [ext_resource type="Resource" uid="uid://c0b2brt3ku38m" path="res://resources/meta_upgrades/upgrades_quantity.tres" id="5_rhgoh"]
 [ext_resource type="Resource" uid="uid://sj5gaaupr0we" path="res://resources/meta_upgrades/shuffle_upgrades.tres" id="6_p2kpw"]
+[ext_resource type="PackedScene" uid="uid://cv5mvullt6fg2" path="res://scenes/ui/sound_button.tscn" id="9_5ncsd"]
 
 [node name="MetaMenu" type="CanvasLayer"]
 layer = 2
@@ -57,10 +58,7 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 16
 
-[node name="BackButton" type="Button" parent="MarginContainer"]
+[node name="BackButton" parent="MarginContainer" instance=ExtResource("9_5ncsd")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
 text = "back_button"

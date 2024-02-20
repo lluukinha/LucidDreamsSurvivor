@@ -18,6 +18,7 @@ func _ready():
 
 
 func on_experience_updated(current: float, target: float):
+	$RandomStreamPlayerComponent.play_random()
 	progress_bar.value = current / target
 	label.text = tr("level") + " " + str(experience_manager.current_level)
 	experience_collected += 1

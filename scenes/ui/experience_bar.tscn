@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch7pdq6yqvjj7"]
+[gd_scene load_steps=10 format=3 uid="uid://ch7pdq6yqvjj7"]
 
 [ext_resource type="Script" path="res://scenes/ui/experience_bar.gd" id="1_t2hj0"]
 [ext_resource type="Texture2D" uid="uid://dwlgth781t07n" path="res://scenes/game_objects/experience_vial/experience_vial.png" id="2_h8b5j"]
+[ext_resource type="PackedScene" uid="uid://d01qsx7i43xtf" path="res://scenes/components/random_stream_player_component.tscn" id="2_lwasy"]
+[ext_resource type="AudioStream" uid="uid://vihhi44i1vr4" path="res://assets/audio/pickupCoin.wav" id="3_0netj"]
 [ext_resource type="Texture2D" uid="uid://bblrb1ll4cn2g" path="res://resources/heroes/morengo.png" id="3_8xtvb"]
+[ext_resource type="AudioStream" uid="uid://d24d7uq6oml2v" path="res://assets/audio/pickupCoin2.wav" id="4_gbxvr"]
+[ext_resource type="AudioStream" uid="uid://bh2cq1rrbwnyk" path="res://assets/audio/pickupCoin3.wav" id="5_e3dhj"]
+[ext_resource type="AudioStream" uid="uid://d368gvjokewv0" path="res://assets/audio/pickupCoin4.wav" id="6_8amvi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0e0io"]
 bg_color = Color(0.458824, 0.890196, 1, 1)
@@ -14,6 +19,9 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 
 [node name="ExperienceBar" type="CanvasLayer"]
 script = ExtResource("1_t2hj0")
+
+[node name="RandomStreamPlayerComponent" parent="." instance=ExtResource("2_lwasy")]
+streams = Array[AudioStream]([ExtResource("3_0netj"), ExtResource("4_gbxvr"), ExtResource("5_e3dhj"), ExtResource("6_8amvi")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15

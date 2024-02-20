@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://duhklbipus26c" path="res://scenes/ui/ability_upgrade_card.tscn" id="1_ha7s1"]
 [ext_resource type="Script" path="res://scenes/ui/upgrade_screen.gd" id="1_idvbv"]
-[ext_resource type="AudioStream" uid="uid://de4il03lit7ei" path="res://assets/audio/level_up.ogg" id="3_ch3hq"]
+[ext_resource type="AudioStream" uid="uid://crmorbut706d2" path="res://assets/audio/powerUp.wav" id="3_v66k4"]
 
 [sub_resource type="Animation" id="Animation_kedw5"]
 length = 0.001
@@ -67,7 +67,7 @@ script = ExtResource("1_idvbv")
 upgrade_card_scene = ExtResource("1_ha7s1")
 
 [node name="LevelUpStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_ch3hq")
+stream = ExtResource("3_v66k4")
 volume_db = -5.0
 autoplay = true
 bus = &"sfx"

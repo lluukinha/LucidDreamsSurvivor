@@ -27,7 +27,6 @@ func collect():
 	if collected:
 		return
 	collected = true
-	$RandomStreamPlayer2DComponent.play_random()
 	GameEvents.emit_experience_vial_collected(1)
 	queue_free()
 
