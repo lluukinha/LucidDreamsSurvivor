@@ -12,6 +12,7 @@ signal collect_vials
 @onready var visuals = $Visuals
 @onready var velocity_component: VelocityComponent = $VelocityComponent
 @onready var health_regeneration_timer = $HealthRegenerationTimer
+@onready var joystick: Joystick = %Joystick
 
 const BASE_HEALTH = 10
 
@@ -46,7 +47,7 @@ func _process(_delta):
 	if is_dead:
 		return
 	
-	var movement_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var movement_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down") + joystick.get_velocity()
 	var direction = movement_vector.normalized()
 	velocity_component.accelerate_in_direction(direction)
 	velocity_component.move(self)

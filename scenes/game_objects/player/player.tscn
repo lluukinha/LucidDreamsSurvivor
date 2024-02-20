@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6k0vhl5ba3lo"]
+[gd_scene load_steps=19 format=3 uid="uid://c6k0vhl5ba3lo"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/player/player.gd" id="1_6hhjf"]
 [ext_resource type="PackedScene" uid="uid://g38lucl12bnx" path="res://scenes/components/health_component.tscn" id="2_4eg02"]
 [ext_resource type="PackedScene" uid="uid://8moua6rficel" path="res://scenes/components/velocity_component.tscn" id="2_csre0"]
+[ext_resource type="PackedScene" uid="uid://qk67ekhrkbre" path="res://scenes/joystick.tscn" id="2_ines2"]
 [ext_resource type="PackedScene" uid="uid://dpb2pclf6b7xv" path="res://scenes/components/random_stream_player_2d_component.tscn" id="5_f2seg"]
 [ext_resource type="AudioStream" uid="uid://cejchrhij8ur" path="res://assets/audio/impactMining_000.ogg" id="6_5586d"]
 [ext_resource type="AudioStream" uid="uid://01psy0xydlsl" path="res://assets/audio/impactMining_001.ogg" id="7_t88vs"]
@@ -146,6 +147,12 @@ radius = 5.0
 collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_6hhjf")
+
+[node name="JoystickUI" type="CanvasLayer" parent="."]
+
+[node name="Joystick" parent="JoystickUI" instance=ExtResource("2_ines2")]
+unique_name_in_owner = true
+position = Vector2(81, 329)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
